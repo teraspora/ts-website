@@ -1,0 +1,78 @@
+/* quasi-global styles */
+
+* {
+	/*box-sizing: border-box;*/
+	font-size: 100%;
+	--bg-col: #010012;
+	--text-col: #fceae3;
+	--border-col: #00adff;
+	--spare-col: #ffb700;
+	border-radius: 5px;
+}
+
+body {
+	background-color: var(--bg-col);
+	color: var(--text-col);
+	font-family: 'Mali', cursive;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto 1fr auto;
+	grid-auto-rows: ;
+}
+
+.navbar {
+	grid-column: 1/-1;
+  	grid-row: 1/1;
+  	font-size: 3em;
+}
+.shader {
+	grid-column: 1/span 2;
+  	grid-row: 2/2;
+  	width:960px;
+}
+.info {
+	grid-column: 3/-1;
+  	grid-row: 2/2;
+  	font-family: 'Mali', cursive;
+	font-size: 1em;
+	padding: 1em;
+}
+footer {
+	grid-column: 1/-1;
+  	grid-row: 4/4;
+  	font-size: 1.5em;
+}
+
+.main-nav {
+	display: inline;
+	float: right;
+	list-style-type: none;
+}
+
+.main-nav li{
+	display: inline;
+	font-size: 0.8em;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+}
+
+.main-nav li a {
+	color: var(--spare-col);
+	text-decoration: none;	
+}
+
+/*  misc....                                                          */
+body > * {
+	border: 1px solid var(--border-col);	
+}
+
+.site-name {
+	float: left;
+	font-size: 2em;
+}
+
+.navbar {
+	padding-left: 1em;
+	padding-right: 1em;
+}
