@@ -7,6 +7,7 @@
 	--text-col: #fceae3;
 	--border-col: #00adff;
 	--spare-col: #ffb700;
+	--hover-col: #ff4b00;
 	border-radius: 5px;
 }
 
@@ -35,7 +36,7 @@ body {
 	grid-column: 3/-1;
   	grid-row: 2/2;
   	font-family: 'Mali', cursive;
-	font-size: 1em;
+	font-size: 1.3em;
 	padding: 1em;
 }
 footer {
@@ -45,7 +46,6 @@ footer {
 }
 
 .main-nav {
-	display: inline;
 	float: right;
 	list-style-type: none;
 }
@@ -58,10 +58,20 @@ footer {
 }
 
 .main-nav li a {
+	display: inline-block;
 	color: var(--spare-col);
 	text-decoration: none;	
 }
 
+.main-nav li a:hover {
+	color: var(--hover-col);
+	transform: scale(1.04);
+}
+
+img {
+	width:100%;
+	height:auto;
+}
 /*  misc....                                                          */
 body > * {
 	border: 1px solid var(--border-col);	
@@ -70,6 +80,10 @@ body > * {
 .site-name {
 	float: left;
 	font-size: 2em;
+}
+.site-name:hover {
+	color: var(--hover-col);
+	transform: scale(1.02);
 }
 
 .navbar {
