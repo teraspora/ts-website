@@ -70,6 +70,24 @@ main {
 	color: #6fcfff;
 }
 
+.blog-article {
+	font-size: 1.3em;
+	overflow: scroll;
+	text-align: left;
+}
+
+.blog-article h1 {
+	font-size: 1.5em;
+	font-weight:normal;
+	color: var(--light-text-col)
+}
+
+.blog-article h2 {
+	font-size: 1.4em;
+	font-weight:normal;
+	color: var(--alt-text-col); 
+}
+
 .info {
 	grid-column: 3/-1;
   	grid-row: 2/3;
