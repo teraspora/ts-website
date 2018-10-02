@@ -73,12 +73,14 @@ main {
 
 .blog > p {
 	font-size: 1em;
+	padding: 1em;
 }
 
 .blog-article {
 	font-size: 1.3em;
 	overflow: scroll;
 	text-align: left;
+	padding: 1em;
 }
 
 .blog-article h1 {
@@ -151,4 +153,8 @@ img {
 .navbar {
 	padding-left: 1em;
 	padding-right: 1em;
+}
+
+.email {
+	color: var(--light-text-col);
 }
