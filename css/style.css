@@ -61,13 +61,18 @@ main {
   	text-align: center;
 }
 
-.blog > p {
-	font-size: 1em;
+.blog {
+	overflow: scroll;
 }
 
-.blog > h1 {
+.blog > * {
 	font-size: 1.3em;
+	font-weight:normal;
 	color: #6fcfff;
+}
+
+.blog > p {
+	font-size: 1em;
 }
 
 .blog-article {
