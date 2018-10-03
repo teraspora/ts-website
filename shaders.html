@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<title>teraspora</title>
+<meta name="description" content="The Art of Mathematics">
+<meta name="author" content="John Lynch">
+<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="grid">
+	<header class="navbar">
+		<span class="site-name">
+			teraspora
+		</span>
+		<nav class = "nav">
+			<ul class="main-nav">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="gallery.html">Art</a></li>
+				<li><a href="coding.html">Coding</a></li>
+				<li><a href="music.html">Music</a></li>
+				<li><a href="food.html">Food</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="blog-article">
+		<h1 id="whatareshadersandhowcaniprogramthem">What are Shaders and how can I Program them?</h1>
+
+		<p>These days, the GPU (Graphics Processing Unit) is a super turbocharged, massively parallelised little box that can do all sorts of clever stuff, besides arranging for an image to be displayed on your screen.   I find it astounding to consider that the latest nVidia GPU, for instance, has <em>more than 18 billion transistors</em>!</p>
+
+		<p>Back in the day, however, the GPU was just a simple processor on a chip which the CPU would tell where to find a buffer of colour values.   It would then read this buffer (the Frame buffer) and render it to the screen.   Like a robot on an assembly line, it did what it did efficiently but it didn't know how to do anything else. </p>
+
+		<p>Then came something called the Fixed Function Pipeline, or FFP.   This brought various processing stages into the GPU, which were to an extent configurable, and thus allowed more flexibility for graphics programmers, enabling some tasks involved in the calculation of the geometry and colourisation of a screen image to be offloaded from the CPU to the GPU.   But these stages were not directly programmable, only configurable.</p>
+
+		<p>These days, shaders replace many of the stages of the FFP.   So what is a shader?   In essence, a shader is a small program which, given a simple input, produces a simple output.   It runs on the GPU itself and takes advantage of the GPU's massively parallel capabilities to allow the GPU to calculate (for example) the colours for a million pixels, and to do this sixty or more times a second.</p>
+
+		<p>A shader such as the one I've just described is called a fragment shader, or sometimes a pixel shader.   A fragment can in general map to a group of pixels but for the purposes of this article we will assume a fragment corresponds to a pixel on your screen.</p>
+
+		<p>What a fragment shader does is, in terms of the bigger picture, straightforward:  given the coordinates of a screen pixel, it calculates and returns the colour to be applied to that pixel.   And it's run for every pixel on the screen.   So, for example, on the laptop screen I'm using right now (1920 x 1080), that's more than two million times.   But because this is massively parallelised within the GPU, it can all be done in a few milliseconds.</p>
+
+		<p>And then there are vertex shaders.   A vertex shader takes as its input an array of vectors describing points in 3D space, and transforms these somehow.   It has the ability to work with supplied texture images, manipulate colours and transform positions.   It cannot, however, add new vertices.</p>
+
+		<p>Fragment shaders and vertex shaders, though, are not the only types.   We also have geometry shaders and, more recently, tesselation shaders.   I know hardly anything about geometry shaders or tesselation shaders so I won't mention them again, except to say that they are generally executed after the vertex shader stage and before the fragment shader stage.   As a programmer passionate about creating art from mathematics and coding, it's the vertex and fragment shader stages that I'm interested in.   And although I've written <a target=”_blank” href="https://www.vertexshaderart.com/art/JtvN2gq9PiiSdwvHG">one vertex shader</a> it's fragment shaders I've really been experimenting with and learning about recently.</p>
+
+		<p>So, where to start?   I'd recommend going to the <a target=”_blank” href="https://www.shadertoy.com/">Shadertoy website</a> and browsing the shaders there.   They're written in a language called GLSL (OpenGL Shading Language) which is very similar to C, but is augmented with powerful native vector and matrix operations.   If you know C, or even Java, you should be able to understand what the code is doing, even if it's not at all obvious how the code achieves the visual effects seen!   Try changing some of the numbers in the code, or wrapping some values in a <code>sin()</code> or <code>sqrt()</code> function, for instance. Click the little play button beneath the code to compile and run.</p>
+
+		<p>Then check out these two great video tutorials:</p>
+
+		<p><a target=”_blank” href="https://www.youtube.com/watch?v=0ifChJ0nJfM">https://www.youtube.com/watch?v=0ifChJ0nJfM</a> and</p>
+
+		<p><a target=”_blank” href="https://www.youtube.com/watch?v=3CycKKJiwis&amp;t=641s">https://www.youtube.com/watch?v=3CycKKJiwis&amp;t=641s</a>.</p>
+
+		<p>Best if you have two monitors and write the code as you go in Shadertoy on your other monitor.   The teachers are Inigo Quilez and Martijn Steinrucken, both masters of making art from mathematics and coding.   I think they're pretty good teachers, too, so once you've got the basic idea it's definitely worth checking out their Youtube channels and going through all the tutorials.</p>
+
+		<p>Or have a look at my own shaders, some of which are displayed here on this site, but to see the code, find them on <a target=”_blank” href="https://www.shadertoy.com/results?query=teraspora">My Shadertoy Page</a>.</p>
+
+		<p>Have fun making art from maths and code! </p>
+	</main>
+
+	<section class="info">
+		<h3>
+			teraspora : the art of mathematics
+		</h3>
+		<p>
+			This will contain info about the main frame...
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid maiores obcaecati, consectetur inventore atque sit temporibus vitae aut tempore qui voluptatum itaque quo. Asperiores maiores voluptas error. Aperiam ex, officia quidem. Tempora aliquid quasi soluta, delectus, eligendi ullam explicabo, modi voluptatum, perspiciatis libero recusandae dignissimos debitis! Temporibus, voluptatibus officiis ipsam.
+	</section>
+
+	<footer class="footer">
+		Social media links and secondary nav
+	</footer>
+</div>
+
+</body>
+
+
+
+
