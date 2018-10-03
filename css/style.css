@@ -9,6 +9,7 @@
 	--light-text-col: #ffb700;
 	--alt-text-col: #6fcfff;
 	--hover-col: #ff4b00;
+	--code-bg-col: #111;
 	border-radius: 5px;
 	text-decoration: none;
 }
@@ -157,4 +158,13 @@ img {
 
 .email {
 	color: var(--light-text-col);
+}
+
+pre code {
+	color: var(--alt-text-col); 
+  	background-color: var(--code-bg-col);
+  	border: 1px solid var(--light-text-col);
+  	display: block;
+  	padding: 20px;
+  	font-size: 1.1em;
 }

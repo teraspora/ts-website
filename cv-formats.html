@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<title>teraspora</title>
+<meta name="description" content="The Art of Mathematics">
+<meta name="author" content="John Lynch">
+<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="grid">
+  <header class="navbar">
+    <span class="site-name">
+      teraspora
+    </span>
+    <nav class = "nav">
+      <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Art</a></li>
+        <li><a href="coding.html">Coding</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="food.html">Food</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="blog-article">
+      <h1>What format is your CV in?</h1>
+
+      <h2>History</h2>
+
+      <p>Back in the day before personal computers and widespread adoption of email as a means of communication, applying for a job involved typing an up-to-date CV and cover letter on a typewriter, fixing typos with Typex/Whiteout [other brands are available ;) ], getting them photocopied, putting them in an envelope and sending them to your prospective employer via the postal service.</p>
+
+      <p>Then came word-processors, which were basically souped up typewriters which could store data and display characters input on a tiny screen, thus allowing correction prior to printing, and in the more advanced models, storage and retrieval of entire pages or documents.   This certainly made things a bit easier, but ultimately you still ended up with sheets of paper which had to be mailed.</p>
+
+      <h2>The Modern Way</h2>
+
+      <p>Nowadays, of course, almost all job applications are made by email or through the web.   Some employers merely ask you to email them your CV, others require you to complete a web form, inputting all your details in the format prescribed by the employer.   And any company big enough to have a Human Resources department will undoubtedly use automated tools designed to extract and parse the relevant data and use algorithms to decide who's a good fit for the job.   Your CV may not even be viewed by a human:  it may be rejected by an algorithm.</p>
+
+      <p>And, it seems, different incarnations of these tools are better or worse at correctly parsing and decoding different formats.   It has been said to me (though I don't know whether this is actually true) that in general they tend to be better at parsing Microsoft's <code>.doc</code> format than the open standard <code>.pdf</code> format.   But, either way, whether your CV is actually seen by a human might well depend on such factors as exactly what headings you have for your sections, how you categorise your various skills and what format you send it in.</p>
+
+      <p>Of course, applications taken by means of web forms clearly allow these factors to be obviated, which is probably why more and more employers are adopting this method.</p>
+
+      <p>However, this does complicate things for jobseekers, as not only do you have to have a CV prepared as a pdf file, for example, but then you have to do a lot of copy/paste operations to get it into an employer's web form.   And every employer's form is different!</p>
+
+      <h2>A New Idea</h2>
+
+      <p>What would greatly facilitate job applications, then, would be the adoption of a standard format for CVs, which would have defined fields that could be parsed by a simple online or offline application.   To me, the obvious choice would be a JSON schema, but an XML schema would also serve the purpose; I just prefer JSON, partly because it's just natively compatible with Javascript, but also because I like curly brackets better than angle brackets!</p>
+
+      <p>Such a schema would have named fields from which any employer could parse an applicant's details with exactitude.   So, for example, the beginning on a JSON CV might look something like this:</p>
+
+      <pre><code>
+      {
+        "info": {
+            "name": "Alice Foo",
+            "email": "alicef@bar.net",
+            "tel": "+555(0)555-5555",
+            "website": "http://www.alicefoo.net",
+            "github": "https://github.com/alicefoo",
+            "address": {
+              "address-0": "Apartment 42",
+              "address-1": "Heart of Gold",
+              "address-2": "Ballydehob",
+              "region": "Co. Cork",
+              "country": "IE"
+            }
+        },
+        "work-current": {
+            "employer": {
+              ...
+            }
+        }
+      }
+      </code></pre>
+
+      <p>I'd be interested to hear the reactions both of employees and of employers to such a proposal... </p>
+  </main>
+
+  <section class="info">
+    <h3>
+      teraspora : the art of mathematics
+    </h3>
+    <p>
+      This will contain info about the main frame...
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid maiores obcaecati, consectetur inventore atque sit temporibus vitae aut tempore qui voluptatum itaque quo. Asperiores maiores voluptas error. Aperiam ex, officia quidem. Tempora aliquid quasi soluta, delectus, eligendi ullam explicabo, modi voluptatum, perspiciatis libero recusandae dignissimos debitis! Temporibus, voluptatibus officiis ipsam.
+  </section>
+
+  <footer class="footer">
+    Social media links and secondary nav
+  </footer>
+</div>
+
+</body>
+
+
+
+
