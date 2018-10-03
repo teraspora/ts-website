@@ -66,18 +66,19 @@ main {
 	overflow: scroll;
 }
 
-.blog > * {
-	font-size: 1.3em;
+.blog > h3 {
+	font-size: 1.1em;
 	font-weight:normal;
 	color: #6fcfff;
 }
 
 .blog > p {
-	font-size: 1em;
+	font-size: 0.8em;
 	padding: 1em;
 }
 
 .blog-article {
+	font-family: 'Rubik', sans-serif;
 	font-size: 1.3em;
 	overflow: scroll;
 	text-align: left;
@@ -144,6 +145,8 @@ img {
 
 .site-name {
 	float: left;
+	color: var(--bg-col);
+	text-shadow: 1px 1px white, -2px -2px 4px var(--alt-text-col);
 	font-size: 2em;
 }
 .site-name:hover {
@@ -161,10 +164,15 @@ img {
 }
 
 pre code {
+	font-family: 'Source Code Pro', monospace;
 	color: var(--alt-text-col); 
   	background-color: var(--code-bg-col);
   	border: 1px solid var(--light-text-col);
   	display: block;
   	padding: 20px;
   	font-size: 1.1em;
+}
+p code {
+	font-family: 'Source Code Pro', monospace;
+	color: var(--alt-text-col); 
 }
