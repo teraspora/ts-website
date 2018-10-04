@@ -33,19 +33,28 @@
 
 	<main class="shader">
 		<div class="iframe-wrapper">
-			<iframe class ="ifrm" frameborder="0" src="https://www.shadertoy.com/embed/MlKyWy?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
+			<iframe class ="ifrm" frameborder="0" src="https://www.shadertoy.com/embed/4tdfzH?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 		</div>
 		
 	</main>
 
-	<section class="info">
-		<h3>
-			teraspora : the art of mathematics
-		</h3>
+	<aside class="info">
+		<p class = "intro">
+			This is the website of John Lynch, software developer, mathematician, digital artist, musician, composer, gardener, builder, aficionado of good coffee.
+		</p>
+		<p class = "intro">
+			To find out more about me and what I do, hit on one of the links above. :)
+		</p>
+		
+		<h1>Voronoi Diagrams</h1>
 		<p>
-			This will contain info about the main frame...
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid maiores obcaecati, consectetur inventore atque sit temporibus vitae aut tempore qui voluptatum itaque quo. Asperiores maiores voluptas error. Aperiam ex, officia quidem. Tempora aliquid quasi soluta, delectus, eligendi ullam explicabo, modi voluptatum, perspiciatis libero recusandae dignissimos debitis! Temporibus, voluptatibus officiis ipsam.
-	</section>
+			You are looking at animated Voronoi diagrams.   They arise from plotting a number of "fixed points", then plotting the loci of points that are equidistant from the two nearest fixed points.   Here I'm animating the results by varying some parameters with time.  Voronoi diagrams result in tesselations of the plane, and have a wide range of applications ranging from fluid dynamics, the study of bone growth, forest growth patterns, rainfall measurement, aviation, video game collision detection and a host more!
+			The animation is coded in a &#34;shader&#34;, a small program which runs entirely on your graphics chip.   For more info see <a href="shaders.html">here</a>.
+		</p>
+		<p>				
+			<span class="note">Mathematical note:</span> distance may be defined in terms of any valid distance metric, but generally some form of Minkowski distance, such as Euclidean distance (order 2) or Manhattan distance (order 1).  Here I'm using the latter.
+		</p>
+	</aside>
 
 	<footer class="footer">
 		Social media links and secondary nav

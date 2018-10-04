@@ -136,7 +136,6 @@ footer {
 }
 
 img {
-	max-width:90%;
 	height:auto;
 }
 /*  misc....                                                          */
@@ -168,8 +167,6 @@ img {
 pre code {
 	font-family: 'Source Code Pro', monospace;
 	color: var(--alt-text-col); 
-  	background-color: var(--code-bg-col);
-  	border: 1px solid var(--light-text-col);
   	display: block;
   	padding: 20px;
   	font-size: 1.1em;
@@ -177,4 +174,34 @@ pre code {
 p code {
 	font-family: 'Source Code Pro', monospace;
 	color: var(--alt-text-col); 
+}
+
+code.code-boxed {
+  	border: 1px solid var(--light-text-col);	
+}
+
+code.code-unboxed {
+	padding: 0;
+	font-size: 0.9em;
+}
+
+.blog-article, .shader, .info {
+	overflow: scroll;
+}
+
+.intro {
+	font-size: 1.2em;
+	color: var(--alt-text-col);
+}
+.note {
+	color: var(--light-text-col);
+}
+
+#monk-image {
+	border: 1px solid white;
+	border-radius: 10px;
+}
+
+.info img {
+	object-fit: cover;
 }
