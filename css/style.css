@@ -7,7 +7,7 @@
 	--text-col: #fceae3;
 	--border-col: #00adff;
 	--light-text-col: #ffb700;
-	--alt-text-col: #6fcfff;
+	--alt-text-col: #0085f7;
 	--hover-col: #ff4b00;
 	--code-bg-col: #111;
 	border-radius: 5px;
@@ -63,13 +63,14 @@ main {
 }
 
 .blog, .main-image {
+	font-family: 'Rubik', sans-serif;
 	overflow: scroll;
 }
 
 .blog > h1 {
 	font-size: 1.1em;
 	font-weight:normal;
-	color: #0085f7;
+	color: var(--alt-text-col);
 }
 
 .blog > p {
@@ -88,13 +89,13 @@ main {
 .blog-article h1 {
 	font-size: 1.5em;
 	font-weight:normal;
-	color: var(--light-text-col)
+	color: var(--alt-text-col)
 }
 
 .blog-article h2 {
 	font-size: 1.4em;
 	font-weight:normal;
-	color: var(--alt-text-col); 
+	color: var(--light-text-col); 
 }
 
 .info {
