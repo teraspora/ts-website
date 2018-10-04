@@ -62,14 +62,14 @@ main {
   	text-align: center;
 }
 
-.blog {
+.blog, .main-image {
 	overflow: scroll;
 }
 
-.blog > h3 {
+.blog > h1 {
 	font-size: 1.1em;
 	font-weight:normal;
-	color: #6fcfff;
+	color: #0085f7;
 }
 
 .blog > p {
@@ -145,13 +145,14 @@ img {
 
 .site-name {
 	float: left;
-	color: var(--bg-col);
-	text-shadow: 1px 1px white, -2px -2px 4px var(--alt-text-col);
+	color: var(--alt-text-col);
 	font-size: 2em;
+	text-shadow: -1px -1px 3px var(--light-text-col);
 }
 .site-name:hover {
 	color: var(--hover-col);
 	transform: scale(1.01);
+	text-shadow: 1px 1px 3px var(--alt-text-col);
 }
 
 .navbar {
