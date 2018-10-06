@@ -206,3 +206,9 @@ code.code-unboxed {
         height: 100%;
         max-width: 100%;
 }
+code:hover {
+    filter: invert(100%);        
+}
+#sug {
+    text-decoration: underline;
+}
