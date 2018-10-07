@@ -12,6 +12,7 @@
         --code-bg-col: #111;
         border-radius: 0.5vw;
         text-decoration: none;
+        padding: 1px;
 }
 
 a {
@@ -82,7 +83,7 @@ main {
         font-size: 1.2vw;
         overflow: scroll;
         text-align: left;
-        padding: 1vw;
+        padding: 2vw;
 }
 
 .blog-article h1 {
@@ -103,6 +104,7 @@ main {
         font-family: 'Mali', cursive;
         font-size: 1vw;
         padding: 1vw;
+        position: relative;
 }
 
 footer {
@@ -211,4 +213,51 @@ code:hover {
 }
 #sug {
     text-decoration: underline;
+}
+
+#side-image {
+    max-height: 90%;
+    max-width: 90%;
+    position: absolute;
+}
+
+/*
+Font Awsome styling for social icons:
+*/
+/* social media links in footer */
+.social-icon {
+    color: #fff;
+}
+ul.social-icons {
+    margin-top: 10px;
+}
+.social-icons li {
+    vertical-align: top;
+    display: inline;
+    height: 100px;
+}
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.fa, .icon {
+    padding: 2px 2px;
+    background-color: var(--bg-col);
+}
+.fa-twitter:hover {
+    background-color: #00B6F1;
+    transition: 0.6s;    
+}
+.fa-github:hover {
+    color: #9840d9;
+    transition: 0.6s;    
+}
+.fa-linkedin:hover {
+    background-color: #04669A;
+    transition: 0.6s;    
+}
+.icon-st:hover {
+    background-color: #f321b7;
+    transition: 0.6s;    
 }
