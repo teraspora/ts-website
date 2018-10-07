@@ -15,14 +15,6 @@
         padding: 1px;
 }
 
-a {
-        color: var(--light-text-col);
-}
-
-a:hover {
-        color: var(--hover-col);
-}
-
 .grid {
         height: 100vh;
         background-color: var(--bg-col);
@@ -31,35 +23,102 @@ a:hover {
         display: grid;
         align-content: end;
         grid-gap: 0.7vw;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto 1fr auto;
-        grid-auto-rows: auto;
-}
-
-.iframe-wrapper {
-    position: relative;
-    overflow: hidden;
-    padding-top: 56.25%;
-}
-
-.ifrm {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-.navbar {
-        grid-column: 1/-1;
-        grid-row: 1/2;
 }
 
 main {
-        grid-column: 1  /span 2;
-        grid-row: 2/3;
         text-align: center;
+}
+
+.info {
+        font-family: 'Mali', cursive;
+        font-size: 1vw;
+        padding: 1vw;
+        position: relative;
+}
+
+footer {
+        font-size: 1.5vw;
+}
+/*=========================================
+for mobile:                                 */
+.grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: 50px 1fr 1fr 50px;
+            grid-auto-rows: auto;
+    }
+
+    .navbar {
+            grid-column: 1/-1;
+            grid-row: 1/2;
+    }
+
+    main {
+            grid-column: 1/-1;
+            grid-row: 2/3;
+    }
+
+    .info {
+            grid-column: 1/-1;
+            grid-row: 3/4;
+    }
+
+    footer {
+            grid-column: 1/-1;
+            grid-row: 4/5;
+    }
+
+/*=========================================
+for desktop:                                 */
+@media only screen and (min-width: 992px) {
+    .grid {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-auto-rows: auto;
+    }
+
+    .navbar {
+            grid-column: 1/-1;
+            grid-row: 1/2;
+    }
+
+    main {
+            grid-column: 1  /span 2;
+            grid-row: 2/3;
+    }
+
+    .info {
+            grid-column: 3/-1;
+            grid-row: 2/3;
+    }
+
+    footer {
+            grid-column: 1/-1;
+            grid-row: 3/4;
+    }
+}
+
+
+.main-nav {
+        float: right;
+        list-style-type: none;
+        font-size: 1.7vw;
+}
+
+.main-nav li{
+        display: inline;
+        padding-left: 0.6vw;
+        padding-right: 0.6vw;
+}
+
+.main-nav li a {
+        display: inline-block;
+        color: var(--light-text-col);
+        text-decoration: none;  
+}
+
+.main-nav li a:hover {
+        color: var(--hover-col);
+        transform: scale(1.04);
 }
 
 .blog, #main-image {
@@ -98,44 +157,6 @@ main {
         color: var(--light-text-col); 
 }
 
-.info {
-        grid-column: 3/-1;
-        grid-row: 2/3;
-        font-family: 'Mali', cursive;
-        font-size: 1vw;
-        padding: 1vw;
-        position: relative;
-}
-
-footer {
-        grid-column: 1/-1;
-        grid-row: 3/4;
-        font-size: 1.5vw;
-}
-
-.main-nav {
-        float: right;
-        list-style-type: none;
-        font-size: 1.7vw;
-}
-
-.main-nav li{
-        display: inline;
-        padding-left: 0.6vw;
-        padding-right: 0.6vw;
-}
-
-.main-nav li a {
-        display: inline-block;
-        color: var(--light-text-col);
-        text-decoration: none;  
-}
-
-.main-nav li a:hover {
-        color: var(--hover-col);
-        transform: scale(1.04);
-}
-
 img {
         height:auto;
 }
@@ -165,6 +186,14 @@ img {
         color: var(--light-text-col);
 }
 
+a {
+        color: var(--light-text-col);
+}
+
+a:hover {
+        color: var(--hover-col);
+}
+
 pre code {
         font-family: 'Source Code Pro', monospace;
         color: var(--alt-text-col); 
@@ -184,6 +213,10 @@ code.code-boxed {
 code.code-unboxed {
         padding: 0;
         font-size: 1vw;
+}
+
+code:hover {
+    filter: invert(100%);        
 }
 
 .blog p {
@@ -208,9 +241,7 @@ code.code-unboxed {
         height: 100%;
         max-width: 100%;
 }
-code:hover {
-    filter: invert(100%);        
-}
+
 #sug {
     text-decoration: underline;
 }
@@ -219,6 +250,21 @@ code:hover {
     max-height: 90%;
     max-width: 90%;
     position: absolute;
+}
+
+.iframe-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.ifrm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 /*
@@ -260,4 +306,12 @@ ul.social-icons {
 .icon-st:hover {
     background-color: #f321b7;
     transition: 0.6s;    
+}
+
+
+
+@media only screen and (min-width: 992px) {
+    body {
+        background-color: lightblue;
+    }
 }

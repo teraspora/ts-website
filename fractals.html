@@ -33,23 +33,27 @@
 	</header>
 
 	<main class="blog-article">
-		<h2>An article about fractals</h2>
-		<p>
-			fugiat porro repudiandae. Quas culpa fugit tenetur vitae laborum cumque, ex unde distinctio reiciendis architecto quos laboriosam nulla dolorum facilis doloremque obcaecati delectus esse voluptatem. Illum ad, non. Molestiae itaque praesentium sapiente et neque voluptate enim, quaerat nam iure error eum natus, distinctio laboriosam ipsum minus molestias a odit. Dignissimo
-		</p>
-		<p>magnam illum necessitatibus assumenda molestias amet uptate doloribus provident ex accusamus itaque minima itis architecto delectus voluptas, maxime esse fuga nihilus, officiis voluptates! Dolore dolorem nesciunt, essitatibus sint, magnam nam optio doloremque fugiat eius  minima ipsum velit beatae quaerat veniam eaque nobis oriosam quam explicabo[::-1].replace(
-obacilpxe mauq masoirobal sibon euqae mainev tareauq eataeb tilev muspi aminim, ae suie taiguf euqmerolod oitpo man mangam, tnis subitatissecen, tnuicsen merolod eroloD !setatpulov siiciffo, suie lihin aguf esse emixam, satpulov sutceled otcetihcra sitibed aminim euqati sumasucca xe tnedivorp subirol
-		</p>
+		<h1 id="my-journey-into-a-world-of-fractals">My Journey into a World of Fractals</h1>
+		<p>It was many moons ago when I was a maths student that I first laid eyes on images of the Mandelbrot and Julia sets, and became aware of fractals.</p>
+		<p>Both the word and the idea were new to me.   And what fascinated me as much as the infinite detail was that it seemed astounding that even the intricate and convoluted structure of the boundary of the Mandelbrot set could be produced from such a simple function as f(z):z &rarr; z<sup>2</sup> + c.   In the world of real numbers one expected a simple second order polynomial to produce a smooth curve.   It seemed, though, that moving from the real line into the complex plane produced entirely different behaviour.   And then, of course, there&#39;s the question of iteration, that&#39;s the key to the intricate and infinite detail present in many &quot;escape-time&quot; fractal images.</p>
+		<p>It was many years later that I began to think about writing my own program to produce images of the Mandelbrot and Julia sets.   At first it was really an exercise to see how well I&#39;d mastered Java, but also because I&#39;d always been fascinated by the patterns inherent in life, in the natural world, and in mathematics.   I knew it would bring me joy if I could create a coloured picture of a Julia set merely by writing some mathematical code.</p>
+		<p>I have a clear memory of the moment my first Julia set appeared on the screen.   I experienced intense joy.   And I guess it was that joy which was the beguiling feeling that led me on a journey into the world of fractals.</p>
+		<p>To be continued...</p>
+		<h2 id="how-it-works">How it works</h2>
+		<p>In this simple case, how do we proceed?   Well, we iterate this simple function, again and again and again, each time taking the output and putting it back as the input.   Strangely, though, we&#39;re not interested in the precise value of the function each time we apply it.   All we do is take whatever value it produces and apply the function to that.   And we carry on doing that until either the value produced goes outside a certain range (which we can predefine) or we&#39;ve done a given number of iterations (which we can also predefine).</p>
+		<p>We might decide that we&#39;ll do a maximum of 32 iterations and we&#39;ll stop iterating if the value goes outside a circle of radius 4 centred on the origin (remember we&#39;re in the complex plane).   A number z = x + iy is outside the circle if and only if x<sup>2</sup> + y<sup>2</sup> &gt; 16, so we can easily test for this.</p>
+		<p>To be continued...</p>
+
 	</main>
 
-	<section class="info">
-		<h3>
+	<aside class="info">
+		<h3 class="intro">
 			teraspora : the art of mathematics
 		</h3>
 		<p>
-			This will contain info about the main frame...
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid maiores obcaecati, consectetur inventore atque sit temporibus vitae aut tempore qui voluptatum itaque quo. Asperiores maiores voluptas error. Aperiam ex, officia quidem. Tempora aliquid quasi soluta, delectus, eligendi ullam explicabo, modi voluptatum, perspiciatis libero recusandae dignissimos debitis! Temporibus, voluptatibus officiis ipsam.
-	</section>
+			Here will be some info about IFS fractals and how I learnt Clojure by making them with the Quil graphics library.
+		</p>
+	</aside>
 
 	<footer class = "footer">
 			<div class="social-wrapper">
