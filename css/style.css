@@ -20,8 +20,10 @@
         background-color: var(--bg-col);
         color: var(--text-col);
         font-family: 'Mali', cursive;
+        display: -ms-grid;
         display: grid;
-        align-content: end;
+        -ms-flex-line-pack: end;
+            align-content: end;
         grid-gap: 0.7vw;
 }
 
@@ -42,28 +44,38 @@ footer {
 /*=========================================
 for mobile:                                 */
 .grid {
-            grid-template-columns: 1fr;
-            grid-template-rows: 50px 1fr 1fr 50px;
+            -ms-grid-columns: 1fr;
+                grid-template-columns: 1fr;
+            -ms-grid-rows: 50px 1fr 1fr 50px;
+                grid-template-rows: 50px 1fr 1fr 50px;
             grid-auto-rows: auto;
     }
 
     .navbar {
             grid-column: 1/-1;
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 1;
             grid-row: 1/2;
     }
 
     main {
             grid-column: 1/-1;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 1;
             grid-row: 2/3;
     }
 
     .info {
             grid-column: 1/-1;
+            -ms-grid-row: 3;
+            -ms-grid-row-span: 1;
             grid-row: 3/4;
     }
 
     footer {
             grid-column: 1/-1;
+            -ms-grid-row: 4;
+            -ms-grid-row-span: 1;
             grid-row: 4/5;
     }
 
@@ -71,28 +83,40 @@ for mobile:                                 */
 for desktop:                                 */
 @media only screen and (min-width: 992px) {
     .grid {
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: auto 1fr auto;
+            -ms-grid-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            -ms-grid-rows: auto 1fr auto;
+                grid-template-rows: auto 1fr auto;
             grid-auto-rows: auto;
     }
 
     .navbar {
             grid-column: 1/-1;
+            -ms-grid-row: 1;
+            -ms-grid-row-span: 1;
             grid-row: 1/2;
     }
 
     main {
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 2;
             grid-column: 1  /span 2;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 1;
             grid-row: 2/3;
     }
 
     .info {
             grid-column: 3/-1;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 1;
             grid-row: 2/3;
     }
 
     footer {
             grid-column: 1/-1;
+            -ms-grid-row: 3;
+            -ms-grid-row-span: 1;
             grid-row: 3/4;
     }
 }
@@ -118,7 +142,9 @@ for desktop:                                 */
 
 .main-nav li a:hover {
         color: var(--hover-col);
-        transform: scale(1.04);
+        -webkit-transform: scale(1.04);
+            -ms-transform: scale(1.04);
+                transform: scale(1.04);
 }
 
 .blog, #main-image {
@@ -173,7 +199,9 @@ img {
 }
 .site-name:hover {
         color: var(--hover-col);
-        transform: scale(1.01);
+        -webkit-transform: scale(1.01);
+            -ms-transform: scale(1.01);
+                transform: scale(1.01);
         text-shadow: 0.1vw -0.1vw 0.3vw var(--alt-text-col);
 }
 
@@ -216,7 +244,8 @@ code.code-unboxed {
 }
 
 code:hover {
-    filter: invert(100%);        
+    -webkit-filter: invert(100%);
+            filter: invert(100%);        
 }
 
 .blog p {
@@ -237,7 +266,8 @@ code:hover {
 
 #side-image #main-image {
         border: 0.1vmax solid white;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         height: 100%;
         max-width: 100%;
 }
@@ -293,25 +323,25 @@ ul.social-icons {
 }
 .fa-twitter:hover {
     background-color: #00B6F1;
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
     transition: 0.6s;    
 }
 .fa-github:hover {
     color: #9840d9;
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
     transition: 0.6s;    
 }
 .fa-linkedin:hover {
     background-color: #04669A;
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
     transition: 0.6s;    
 }
 .icon-st:hover {
     background-color: #f321b7;
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
     transition: 0.6s;    
-}
-
-
-
-@media only screen and (min-width: 992px) {
-    body {
-        background-color: lightblue;
-    }
 }
