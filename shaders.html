@@ -36,16 +36,16 @@
 		<h1 >What are Shaders and how can I Program them?</h1>
 
 		<p>These days, the GPU (Graphics Processing Unit) is a super turbocharged, massively parallelised little box that can do all sorts of clever stuff, besides arranging for an image to be displayed on your screen.   I find it astounding to consider that the latest nVidia GPU, for instance, has <em>more than 18 billion transistors</em>!</p>
-
+        <iframe class="ifrm-right" width="320" height="180" frameborder="0" src="https://www.shadertoy.com/embed/4tVcDK?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 		<p>Back in the day, however, the GPU was just a simple processor on a chip which the CPU would tell where to find a buffer of colour values.   It would then read this buffer (the Frame buffer) and render it to the screen.   Like a robot on an assembly line, it did what it did efficiently but it didn't know how to do anything else. </p>
 
 		<p>Then came something called the Fixed Function Pipeline, or FFP.   This brought various processing stages into the GPU, which were to an extent configurable, and thus allowed more flexibility for graphics programmers, enabling some tasks involved in the calculation of the geometry and colourisation of a screen image to be offloaded from the CPU to the GPU.   But these stages were not directly programmable, only configurable.</p>
 
-		<p>These days, shaders replace many of the stages of the FFP.   So what is a shader?   In essence, a shader is a small program which, given a simple input, produces a simple output.   It runs on the GPU itself and takes advantage of the GPU's massively parallel capabilities to allow the GPU to calculate (for example) the colours for a million pixels, and to do this sixty or more times a second.</p>
-		
-        <iframe class="ifrm-left" width="288" height="162" frameborder="1" src="https://www.shadertoy.com/embed/4tVyDd?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
+		 <iframe class="ifrm-left" width="288" height="162" frameborder="1" src="https://www.shadertoy.com/embed/4tVyDd?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
 
-        <p>A shader such as the one I've just described is called a fragment shader, or sometimes a pixel shader.   A fragment can in general map to a group of pixels but for the purposes of this article we will assume a fragment corresponds to a pixel on your screen.</p>
+        <p>These days, shaders replace many of the stages of the FFP.   So what is a shader?   In essence, a shader is a small program which, given a simple input, produces a simple output.   It runs on the GPU itself and takes advantage of the GPU's massively parallel capabilities to allow the GPU to calculate (for example) the colours for a million pixels, and to do this sixty or more times a second.</p>
+		
+       <p>A shader such as the one I've just described is called a fragment shader, or sometimes a pixel shader.   A fragment can in general map to a group of pixels but for the purposes of this article we will assume a fragment corresponds to a pixel on your screen.</p>
 
 		<p>What a fragment shader does is, in terms of the bigger picture, straightforward:  given the coordinates of a screen pixel, it calculates and returns the colour to be applied to that pixel.   And it's run for every pixel on the screen.   So, for example, on the laptop screen I'm using right now (1920 x 1080), that's more than two million times.   But because this is massively parallelised within the GPU, it can all be done in a few milliseconds.</p>
 
@@ -62,7 +62,7 @@
 		<p>So, where to start?   I'd recommend going to the <a target=”_blank” href="https://www.shadertoy.com/">Shadertoy website</a> and browsing the shaders there.   They're written in a language called GLSL (OpenGL Shading Language) which is very similar to C, but is augmented with powerful native vector and matrix operations, as well as sweet functions like <code>step()</code>, <code>mix()</code> and <code>smoothstep()</code>.   If you know C, or even Java, you should be able to understand what the code is doing, even if it's not at all obvious how it achieves the visual effects seen!   Try changing some of the numbers in the code, or wrapping some values in a <code>sin()</code> or <code>sqrt()</code> function, for instance. Click the little play button beneath the code to compile and run, and see the results.   Note that you can set up an account on Shadertoy for free, and keep your shaders there.   You can specify for each shader whether you want it to be publicly visible.</p>
 
 		<p>Then check out these two great video tutorials:</p>
-        <iframe class="ifrm-right" width="288" height="162" frameborder="1" src="https://www.shadertoy.com/embed/ltyyD3?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
+        
 		<p><a target=”_blank” href="https://www.youtube.com/watch?v=0ifChJ0nJfM">https://www.youtube.com/watch?v=0ifChJ0nJfM</a> and</p>
 
 		<p><a target=”_blank” href="https://www.youtube.com/watch?v=3CycKKJiwis&amp;t=641s">https://www.youtube.com/watch?v=3CycKKJiwis&amp;t=641s</a>.</p>
@@ -90,30 +90,6 @@
 // even do the job properly!   Must research better algorithms
 // for randomness... noise function??   Can't use iTime as I need
 // the numbers to be consistent across frames.
-
-// -----------------------------------------------------------------------------
-
-// Copyright © 2018 John Lynch
-
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
-// -----------------------------------------------------------------------------
 
 const float PI = 3.141592654;
 const float TWO_PI = 6.283185307;

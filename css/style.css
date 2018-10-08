@@ -154,7 +154,7 @@ for desktop:                                 */
 
 .blog, #main-image {
         font-family: 'Rubik', sans-serif;
-        overflow: scroll;
+        overflow-x: hidden;
 }
 
 .blog > h1 {
