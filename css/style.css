@@ -306,6 +306,16 @@ code:hover {
     border: 0;
 }
 
+.ifrm-left {
+    float: left;
+    margin: 1vw;
+}
+
+.ifrm-right {
+    float: right;
+    margin: 1vw;
+}
+
 .blog-narrow {
     padding-left: 10vw;
     padding-right: 10vw;

@@ -33,7 +33,7 @@
 	</header>
 
 	<main class="blog-article">
-		<h1 id="whatareshadersandhowcaniprogramthem">What are Shaders and how can I Program them?</h1>
+		<h1 >What are Shaders and how can I Program them?</h1>
 
 		<p>These days, the GPU (Graphics Processing Unit) is a super turbocharged, massively parallelised little box that can do all sorts of clever stuff, besides arranging for an image to be displayed on your screen.   I find it astounding to consider that the latest nVidia GPU, for instance, has <em>more than 18 billion transistors</em>!</p>
 
@@ -42,22 +42,27 @@
 		<p>Then came something called the Fixed Function Pipeline, or FFP.   This brought various processing stages into the GPU, which were to an extent configurable, and thus allowed more flexibility for graphics programmers, enabling some tasks involved in the calculation of the geometry and colourisation of a screen image to be offloaded from the CPU to the GPU.   But these stages were not directly programmable, only configurable.</p>
 
 		<p>These days, shaders replace many of the stages of the FFP.   So what is a shader?   In essence, a shader is a small program which, given a simple input, produces a simple output.   It runs on the GPU itself and takes advantage of the GPU's massively parallel capabilities to allow the GPU to calculate (for example) the colours for a million pixels, and to do this sixty or more times a second.</p>
+		
+        <iframe class="ifrm-left" width="288" height="162" frameborder="1" src="https://www.shadertoy.com/embed/4tVyDd?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
 
-		<p>A shader such as the one I've just described is called a fragment shader, or sometimes a pixel shader.   A fragment can in general map to a group of pixels but for the purposes of this article we will assume a fragment corresponds to a pixel on your screen.</p>
+        <p>A shader such as the one I've just described is called a fragment shader, or sometimes a pixel shader.   A fragment can in general map to a group of pixels but for the purposes of this article we will assume a fragment corresponds to a pixel on your screen.</p>
 
 		<p>What a fragment shader does is, in terms of the bigger picture, straightforward:  given the coordinates of a screen pixel, it calculates and returns the colour to be applied to that pixel.   And it's run for every pixel on the screen.   So, for example, on the laptop screen I'm using right now (1920 x 1080), that's more than two million times.   But because this is massively parallelised within the GPU, it can all be done in a few milliseconds.</p>
 
         <p>The crucial thing this means for programming is that each time the fragment shader runs,which is once for each screen pixel, it is passed the coordinates of that pixel, and its job is to return the colour that that pixel should be set to on the current pass.   That's all.   But otherwise it has no access to the frame buffer nor to any history and so cannot look at any other pixels.   Apart from the current pixel's address it only knows things like the frame number (an integer: 0, 1, 2,...), the time since the start of rendering and the per-frame render time.</p>
+        
+        <iframe class="ifrm-right" width="256" height="144" frameborder="1" src="https://www.shadertoy.com/embed/4t3Bz7?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
+        
         <p>This engenders a different mindset from ways we might be used to compositing data on a screen.   If you want to check the value of a neighbouring pixel, for example, you have to calculate it, you can't just look it up.</p>
         <p>The good news is that everything happens at phenomenal speed, and the native vector and matrix operations in GLSL are implemented as parallel operations directly in the GPU hardware.</p>
 		<p>And then there are vertex shaders.   A vertex shader takes as its input an array of vectors describing points in 3D space, and transforms these somehow.   It has the ability to work with supplied texture images, manipulate colours and transform positions.   It cannot, however, add new vertices.</p>
 
 		<p>Fragment shaders and vertex shaders, though, are not the only types.   We also have geometry shaders and, more recently, tesselation shaders.   I know hardly anything about geometry shaders or tesselation shaders so I won't mention them again, except to say that they are generally executed after the vertex shader stage and before the fragment shader stage.   As a programmer passionate about creating art from mathematics and coding, it's the vertex and fragment shader stages that I'm interested in.   And although I've written <a target=”_blank” href="https://www.vertexshaderart.com/art/JtvN2gq9PiiSdwvHG">one vertex shader</a> it's fragment shaders I've really been experimenting with and learning about recently.</p>
-
+        <iframe class="ifrm-left" width="288" height="162" frameborder="1" src="https://www.shadertoy.com/embed/MtKyDK?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
 		<p>So, where to start?   I'd recommend going to the <a target=”_blank” href="https://www.shadertoy.com/">Shadertoy website</a> and browsing the shaders there.   They're written in a language called GLSL (OpenGL Shading Language) which is very similar to C, but is augmented with powerful native vector and matrix operations, as well as sweet functions like <code>step()</code>, <code>mix()</code> and <code>smoothstep()</code>.   If you know C, or even Java, you should be able to understand what the code is doing, even if it's not at all obvious how it achieves the visual effects seen!   Try changing some of the numbers in the code, or wrapping some values in a <code>sin()</code> or <code>sqrt()</code> function, for instance. Click the little play button beneath the code to compile and run, and see the results.   Note that you can set up an account on Shadertoy for free, and keep your shaders there.   You can specify for each shader whether you want it to be publicly visible.</p>
 
 		<p>Then check out these two great video tutorials:</p>
-
+        <iframe class="ifrm-right" width="288" height="162" frameborder="1" src="https://www.shadertoy.com/embed/ltyyD3?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
 		<p><a target=”_blank” href="https://www.youtube.com/watch?v=0ifChJ0nJfM">https://www.youtube.com/watch?v=0ifChJ0nJfM</a> and</p>
 
 		<p><a target=”_blank” href="https://www.youtube.com/watch?v=3CycKKJiwis&amp;t=641s">https://www.youtube.com/watch?v=3CycKKJiwis&amp;t=641s</a>.</p>
