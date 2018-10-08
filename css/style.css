@@ -158,9 +158,14 @@ for desktop:                                 */
 }
 
 .blog > h1 {
-        font-size: 1.7vw;
+        font-size: 1.9vw;
         font-weight:normal;
         color: var(--alt-text-col);
+}
+
+.blog-title a {
+        font-size: 1.7vw;
+        color: var(--light-text-col);
 }
 
 .blog > p {

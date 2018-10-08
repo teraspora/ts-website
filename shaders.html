@@ -51,7 +51,7 @@
 
         <p>The crucial thing this means for programming is that each time the fragment shader runs,which is once for each screen pixel, it is passed the coordinates of that pixel, and its job is to return the colour that that pixel should be set to on the current pass.   That's all.   But otherwise it has no access to the frame buffer nor to any history and so cannot look at any other pixels.   Apart from the current pixel's address it only knows things like the frame number (an integer: 0, 1, 2,...), the time since the start of rendering and the per-frame render time.</p>
         
-        <iframe class="ifrm-right" width="256" height="144" frameborder="1" src="https://www.shadertoy.com/embed/4t3Bz7?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
+        <iframe class="ifrm-right" width="256" height="144" frameborder="2" src="https://www.shadertoy.com/embed/4t3Bz7?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
         
         <p>This engenders a different mindset from ways we might be used to compositing data on a screen.   If you want to check the value of a neighbouring pixel, for example, you have to calculate it, you can't just look it up.</p>
         <p>The good news is that everything happens at phenomenal speed, and the native vector and matrix operations in GLSL are implemented as parallel operations directly in the GPU hardware.</p>
