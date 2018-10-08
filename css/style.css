@@ -169,6 +169,7 @@ for desktop:                                 */
 }
 
 .blog > p {
+        
         font-size: 1.2vw;
         padding: 1vw;
 }
@@ -176,7 +177,6 @@ for desktop:                                 */
 .blog-article {
         font-family: 'Rubik', sans-serif;
         font-size: 1.2vw;
-        overflow: scroll;
         text-align: left;
         padding: 2vw;
 }
@@ -191,6 +191,20 @@ for desktop:                                 */
         font-size: 1.2vw;
         font-weight:normal;
         color: var(--light-text-col); 
+}
+
+.blog-article, .shader, .info {
+        overflow: scroll;
+}
+
+.blog-narrow {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    text-align: left;
+}
+
+.blog-narrow p {
+    font-size: 1.2vw;
 }
 
 img {
@@ -258,14 +272,6 @@ code:hover {
             filter: invert(100%);        
 }
 
-.blog p {
-    font-size: 1vw;
-}
-
-.blog-article, .shader, .info {
-        overflow: scroll;
-}
-
 .info {
     padding-left: 2vw;
 }
@@ -319,12 +325,6 @@ code:hover {
 .ifrm-right {
     float: right;
     margin: 1vw;
-}
-
-.blog-narrow {
-    padding-left: 10vw;
-    padding-right: 10vw;
-    text-align: left;
 }
 
 .book-title {
