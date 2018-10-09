@@ -13,11 +13,11 @@
         --bg-pale-blue: #7bc2f7;
         border-radius: 0.5vw;
         text-decoration: none;
-        padding: 1px;
 }
 
 body {
     background-color: var(--bg-pale-blue);
+    padding: 0;
 }
 
 .grid {
@@ -29,25 +29,34 @@ body {
         display: grid;
         -ms-flex-line-pack: end;
             align-content: end;
-        grid-gap: 0.7vw;
+        grid-gap: 1vw;
+        padding: 2vh 0.5vw 2vh 0.5vw;
 }
 
 main {
         text-align: center;
+        position: relative;
 }
 
 .info {
         font-family: 'Mali', cursive;
-        font-size: 1vw;
-        padding: 1vw;
+        font-size: 1.5vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
         position: relative;
 }
 
 footer {
-        font-size: 1.5vw;
+        font-size: 1.6vw;
+}
+
+header, main, .info, footer {
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 /*=========================================
-for mobile:                                 */
+for mobile: */
+@media only screen and (max-width: 767px) {
 .grid {
             -ms-grid-columns: 1fr;
                 grid-template-columns: 1fr;
@@ -83,15 +92,15 @@ for mobile:                                 */
             -ms-grid-row-span: 1;
             grid-row: 4/5;
     }
-
+}
 /*=========================================
 for desktop:                                 */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
     .grid {
             -ms-grid-columns: 1fr 1fr 1fr;
                 grid-template-columns: 1fr 1fr 1fr;
             -ms-grid-rows: auto 1fr auto;
-                grid-template-rows: auto 1fr auto;
+                grid-template-rows: 8vh 1fr 8vh;
             grid-auto-rows: auto;
     }
 
@@ -130,17 +139,17 @@ for desktop:                                 */
 .main-nav {
         float: right;
         list-style-type: none;
-        font-size: 1.7vw;
+        font-size: 2.2vw;
 }
 
 .main-nav li{
         display: inline;
-        padding-left: 0.6vw;
-        padding-right: 0.6vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
 }
 
-.main-nav li a {
-        display: inline-block;
+.main-nav li a {/*
+        display: inline-block;*/
         color: var(--light-text-col);
         text-decoration: none;  
 }
@@ -152,49 +161,38 @@ for desktop:                                 */
                 transform: scale(1.04);
 }
 
-.blog, #main-image {
-        font-family: 'Rubik', sans-serif;
-        overflow-x: hidden;
-}
 
-.blog > h1 {
-        font-size: 1.9vw;
+.blog-article  h1, .info h1 {
+        font-family: 'Mali', cursive;        
+        font-size: 2.5vw;
         font-weight:normal;
+        text-align: center;
         color: var(--alt-text-col);
 }
 
-.blog-title a {
-        font-size: 1.7vw;
-        color: var(--light-text-col);
-}
-
-.blog > p {
-        
-        font-size: 1.2vw;
-        padding: 1vw;
-}
-
-.blog-article {
-        font-family: 'Rubik', sans-serif;
-        font-size: 1.2vw;
-        text-align: left;
-        padding: 2vw;
-}
-
-.blog-article h1 {
-        font-size: 1.5vw;
-        font-weight:normal;
-        color: var(--alt-text-col)
-}
-
 .blog-article h2, .info h2 {
-        font-size: 1.2vw;
+        font-family: 'Mali', cursive;        
+        font-size: 1.7vw;
         font-weight:normal;
+        text-align: center;
         color: var(--light-text-col); 
 }
 
+.blog-title a {
+        font-size: 2vw;
+        color: var(--light-text-col);
+}
+
+.blog-article p {
+        font-family: 'Rubik', sans-serif;
+        font-size: 1.5vw;
+        text-align: left;
+        padding-left: 2vw;
+        padding-right: 2vw;
+}
+
 .blog-article, .shader, .info {
-        overflow: scroll;
+        overflow-y: scroll;    
 }
 
 .blog-narrow {
@@ -203,23 +201,16 @@ for desktop:                                 */
     text-align: left;
 }
 
-.blog-narrow p {
-    font-size: 1.2vw;
-}
-
-img {
-        height:auto;
-}
 /*  misc....                                                          */
 .grid > * {
-        border: 0.1vmax solid var(--border-col);    
+        border: 0.1vmax ridge var(--border-col);    
 }
 
 .site-name {
         float: left;
         color: var(--alt-text-col);
-        font-size: 3.4vw;
-        text-shadow: -0.1vw -0.1vw 0.3vw var(--light-text-col);
+        font-size: 5vw;
+        text-shadow: -0.15vw -0.15vw 0.32vw var(--light-text-col);
 }
 .site-name:hover {
         color: var(--hover-col);
@@ -230,8 +221,8 @@ img {
 }
 
 .navbar {
-        padding-left: 1vw;
-        padding-right: 1vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
 }
 
 .email {
@@ -251,7 +242,7 @@ pre code {
         color: var(--alt-text-col); 
         display: block;
         padding: 1vmax;
-        font-size: 1vw;
+        font-size: 1.5vw;
 }
 p code {
         font-family: 'Source Code Pro', monospace;
@@ -264,7 +255,7 @@ code.code-boxed {
 
 code.code-unboxed {
         padding: 0;
-        font-size: 1vw;
+        font-size: 1.5vw;
 }
 
 code:hover {
@@ -272,49 +263,30 @@ code:hover {
             filter: invert(100%);        
 }
 
-.info {
-    padding-left: 2vw;
-}
-
-.intro {
-        font-size: 1.2vw;
-        color: var(--alt-text-col);
-}
 .note {
         color: var(--light-text-col);
 }
 
-#side-image #main-image {
+#side-image, #main-image {
         border: 0.1vmax solid white;
         -o-object-fit: cover;
            object-fit: cover;
-        height: 100%;
+        height: auto;
         max-width: 100%;
+        display: inline-block;
+        margin: auto;/*
+        vertical-align: middle;*/
+        margin-top: 2vh;
 }
 
 #sug {
     text-decoration: underline;
 }
 
-#side-image {
-    max-height: 90%;
-    max-width: 90%;
-    position: absolute;
-}
-
 .iframe-wrapper {
     position: relative;
     overflow: hidden;
     padding-top: 56.25%;
-}
-
-.ifrm {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
 }
 
 .ifrm-left {
@@ -328,8 +300,16 @@ code:hover {
 }
 
 .book-title {
-    font-size: 1vw;
+    font-size: 1.5vw;
     color: var(--alt-text-col);
+}
+
+.float-right {
+    float: right;
+}
+.big-link {
+    font-family: 'Mali', cursive;
+    font-size: 3vw;
 }
 
 /*
@@ -340,7 +320,7 @@ Font Awsome styling for social icons:
     color: #fff;
 }
 ul.social-icons {
-    margin-top: 10px;
+    margin-top: 1vh;
 }
 .social-icons li {
     vertical-align: top;
@@ -353,6 +333,7 @@ ul.social-icons {
 }
 
 .fa, .icon {
+    display: inline;
     padding: 2px 2px;
     background-color: var(--bg-col);
 }

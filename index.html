@@ -35,22 +35,22 @@
 	<main class="blog-article">
 		<h1>Shaders</h1>
 		<p>These animations are created by small programs I've written that are running on your GPU - the graphics processor in your computer.</p>
-		<p>Hover over one and you'll see a play/pause button, a fullscreen option and a rewind facility. In the top one (Yin-Yang), click in the right half for more symmetry, the left for less.</p>
 		<iframe class="ifrm-right" width="320" height="180" frameborder="1" src="https://www.shadertoy.com/embed/4ttfRM?gui=true&t=10&paused=false&muted=false" allowfullscreen></iframe>
+		<p>Hover over one and you'll see a play/pause button, a fullscreen option and a rewind facility. In the bottom one (Yin-Yang), click in the right half for more symmetry, the left for less.</p>
 		<p>Instead of your CPU computing the colours of the all pixels to be displayed for every screen image (ideally about sixty times a second), it sends little programs called shaders to the GPU, which the GPU itself then runs in parallel thousands of times on very specialised processors , to generate every pixel value for the viewport.</p>
+		<iframe class="ifrm-left" width="320" height="180" frameborder="1" src="https://www.shadertoy.com/embed/4tVyDd?gui=true&t=10&paused=false" allowfullscreen></iframe>
 			
 		<p>By manipulating mathematical functions according to the position of the pixel on the screen and the time since the animation started, it's possible to generate all sorts of interesting effects.</p>
 		<p>I have only recently discovered this form of programming, and it gives me great joy to have found a new way of making art from mathematics.</p>
 		<p>But shaders are not just about art, or even just about rendering data to the screen.   The ability of graphics processors to do thousands of calculations in parallel gives them applications in Bitcoin mining and artificial intelligence,
-
-		<iframe class="ifrm-left" width="320" height="180" frameborder="1" src="https://www.shadertoy.com/embed/4tVyDd?gui=true&t=10&paused=false" allowfullscreen></iframe>
+		<iframe class="ifrm-right" width="320" height="180" frameborder="1" src="https://www.shadertoy.com/embed/MtcfzM?gui=true&t=10&paused=false" allowfullscreen></iframe>
+	
 		 for example.   In fact, some of the newest GPUs have special instructions built into their hardware which facilitate the computations needed by neural networks, so training such networks on very large datasets is far more feasible. </p>
 		<p>The use of GPUs and massive parallelisation of computation for all sorts of other applications is a hot area of research currently, and we can expect interesting developments over the next few years.   Maybe people will soon forget why they're called GPUs, as the original
 		
-		<iframe class="ifrm-right" width="320" height="180" frameborder="1" src="https://www.shadertoy.com/embed/MtcfzM?gui=true&t=10&paused=false" allowfullscreen></iframe>
-	specialisation of the word disappears and they become really useful general-purpose workhorses utilised for a wide range of tasks in our digital lives.</p>
+		specialisation of the word disappears and they become really useful general-purpose workhorses utilised for a wide range of tasks in our digital lives.</p>
 		
-		<p>For more info see <a href="shaders.html">Shaders</a></p>
+		<h1 class="float-right">For more info see <a class="big-link" href="shaders.html">Shaders</a></h1>
 		
 	</main>
 
@@ -63,16 +63,15 @@
 		</p>
 		
 		<h1>Voronoi Diagrams</h1>
+		<iframe class="ifrm-right" width="320" height="180" frameborder="1" src="https://www.shadertoy.com/embed/XltfzM?gui=true&t=10&paused=false" allowfullscreen></iframe>
 		<p>
-			You are looking at animated Voronoi diagrams.   They arise from plotting a number of "fixed points", then plotting the loci of points that are equidistant from the two nearest fixed points.   Here I'm animating the results by varying some parameters with time.  Voronoi diagrams result in tesselations of the plane, 
-			<iframe <iframe class="ifrm-right"  width="320" height="180" frameborder="0" src="https://www.shadertoy.com/embed/4tdfzH?gui=true&t=10&paused=true" allowfullscreen></iframe> and have a wide range of applications ranging from fluid dynamics, the study of bone growth, forest growth patterns, rainfall measurement, aviation, video game collision detection and a host more!
+			You are looking at an animated Voronoi diagram.   They arise from plotting a number of "fixed points", then plotting the loci of points that are equidistant from the two nearest fixed points.
+			Here I'm colouring according to the distance of the closest fixed point, and animating the results by varying some parameters with time.  Voronoi diagrams result in tesselations of the plane, 
+			 and have a wide range of applications ranging from fluid dynamics, the study of bone growth, forest growth patterns, rainfall measurement, aviation, video game collision detection and a host more!
 			The animation is coded in a &#34;shader&#34;, a small program which runs entirely on your graphics chip.   For more info see <a href="shaders.html">here</a>.
 		</p>
 		<p>				
-			<span class="note">Mathematical note:</span> distance may be defined in terms of any valid distance metric, but generally some form of Minkowski distance, such as Euclidean distance (order 2) or Manhattan distance (order 1).  Here I'm using the latter.
-		<p>
-			And in case your wondering, the middle tile is just a bunch of sine waves having a party.   They're my friends. ;)
-		</p>
+			<span class="note">Mathematical note:</span> distance may be defined in terms of any valid distance metric, but generally some form of Minkowski distance, such as Euclidean distance (order 2) or Manhattan distance (order 1).  Here I'm using the former.
 		</p>
 	</aside>
 
