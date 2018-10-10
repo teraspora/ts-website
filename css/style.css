@@ -20,12 +20,6 @@ body {
     padding: 0;
 }
 
-.navbar {
-    position: relative;
-    text-align: center;
-        
-}
-
 .grid {
         height: 100vh;
         background-color: var(--bg-col);
@@ -37,6 +31,11 @@ body {
             align-content: end;
         grid-gap: 1vw;
         padding: 2vh 0.5vw 2vh 0.5vw;
+}
+
+.navbar {
+    position: relative;
+    text-align: top;        
 }
 
 main {
@@ -106,7 +105,7 @@ for desktop:                                 */
             -ms-grid-columns: 1fr 1fr 1fr;
                 grid-template-columns: 1fr 1fr 1fr;
             -ms-grid-rows: auto 1fr auto;
-                grid-template-rows: 8vh 1fr 8vh;
+                grid-template-rows: 10vh 1fr 8vh;
             grid-auto-rows: auto;
     }
 
@@ -145,7 +144,11 @@ for desktop:                                 */
 .main-nav {
         float: right;
         list-style-type: none;
-        font-size: 2.2vw;
+        font-size: 2.2vw;/*
+        line-height: 2.2vw;
+        height: 2.2vw;*/
+        margin-top: 10px;
+           
 }
 
 .main-nav li{
@@ -165,6 +168,10 @@ for desktop:                                 */
         -webkit-transform: scale(1.04);
             -ms-transform: scale(1.04);
                 transform: scale(1.04);
+}
+
+.nav {
+    font-size: 1vw;
 }
 
 
@@ -216,6 +223,8 @@ for desktop:                                 */
         float: left;
         color: var(--alt-text-col);
         font-size: 5vw;
+        margin-top: 0px;
+        padding-top: 0;        
         text-shadow: -0.15vw -0.15vw 0.32vw var(--light-text-col);
 }
 .site-name:hover {
@@ -226,9 +235,16 @@ for desktop:                                 */
         text-shadow: 0.1vw -0.1vw 0.3vw var(--alt-text-col);
 }
 
+.site-name a {
+        margin-top: 0px;
+        padding-top: 0;       
+}
+
 .navbar {
         padding-left: 2vw;
         padding-right: 2vw;
+        margin-top: 0px;
+        padding-top: 0;   
 }
 
 .email {
