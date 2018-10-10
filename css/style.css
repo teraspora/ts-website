@@ -20,6 +20,12 @@ body {
     padding: 0;
 }
 
+.navbar {
+    position: relative;
+    text-align: center;
+        
+}
+
 .grid {
         height: 100vh;
         background-color: var(--bg-col);
@@ -310,6 +316,19 @@ code:hover {
 .big-link {
     font-family: 'Mali', cursive;
     font-size: 3vw;
+}
+
+.gallery {
+    position: relative;
+}
+
+.gallery img {
+    position: absolute;
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
 }
 
 /*
