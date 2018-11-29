@@ -156,8 +156,8 @@ for desktop:                                 */
         padding-right: 1vw;
 }
 
-.main-nav li a {/*
-        display: inline-block;*/
+.main-nav li a {
+        display: inline-block;
         color: var(--light-text-col);
         text-decoration: none;  
 }
@@ -221,7 +221,7 @@ for desktop:                                 */
 .site-name {
         float: left;
         color: var(--alt-text-col);
-        font-size: 5vw;
+        font-size: 8vh;
         margin-top: 0;
         padding-top: 0;        
         text-shadow: -0.15vw -0.15vw 0.32vw var(--light-text-col);
