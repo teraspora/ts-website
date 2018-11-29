@@ -39,7 +39,6 @@ body {
 }
 
 main {
-        text-align: center;
         position: relative;
 }
 
@@ -272,12 +271,14 @@ p code {
 }
 
 code.code-boxed {
-        border: 0.1vmax solid var(--light-text-col);        
+        border: 0.1vmax solid var(--light-text-col);
+
 }
 
 code.code-unboxed {
         padding: 0;
         font-size: 1.5vw;
+
 }
 
 code:hover {
@@ -321,6 +322,10 @@ code:hover {
     margin: 1vw;
 }
 
+.ifrm-centre {
+    display: block;
+    margin: auto;
+}
 .book-title {
     font-size: 1.5vw;
     color: var(--alt-text-col);
