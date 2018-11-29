@@ -64,7 +64,7 @@ for mobile: */
 .grid {
             -ms-grid-columns: 1fr;
                 grid-template-columns: 1fr;
-            -ms-grid-rows: 50px 1fr 1fr 50px;
+            -ms-grid-rows: 10vh 40vh 40vh 10vh;
                 grid-template-rows: 50px 1fr 1fr 50px;
             grid-auto-rows: auto;
     }

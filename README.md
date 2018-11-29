@@ -41,7 +41,7 @@ As I gained coding experience realised that in order to get work as a developer 
 
 ## Technologies Used
 
-<p>The site was lovingly crafted by hand, using raw semantic HTML5 and CSS3.
+<p>The site was lovingly crafted by hand, using raw semantic HTML5 and CSS3, with just an iota of Javascript on the Gallery page to switch images randomly.
 	I did not use any preprocessors like Sass or HAML, or CSS libraries like Bootstrap, as I felt I first needed to learn the nuts and bolts, particularly of CSS.   The only external resources used are Google Fonts (for <a target="_blank" href="https://fonts.google.com/specimen/Mali">Mali</a> and <a target="_blank" href="https://fonts.google.com/specimen/Rubik">Rubik</a>), Font Awesome for social media icons, and embedded iframes from Youtube and Shadertoy, which is all my own content in the form of fractal videos and shader programs I've created myself.</p>
 <p>
 	All the images are mine.   The photographs were taken with my Nikon Coolpix P500 digital SLR camera, and the fractal images were generated my Java escape-time fractal program.   I use <a target="_blank" href="https://www.imagemagick.org/script/index.php">ImageMagick</a> to resize them where necessary, or occasionally <a target="_blank" href="https://www.gimp.org/">GIMP</a>.</p>
@@ -63,7 +63,8 @@ It was tested continually as I developed it, in Firefox Developer Edition v.63.0
 
 I used responsive mode in the dev tools and resizing the viewport to find unwanted behaviour so as to correct it.   I also checked the appearance on both my phone and tablet (both Android) in Chrome and Dolphin browsers.
 ### To do
-I have not yet tested it in Opera, Safari, any text-based browser, or any Apple device
+- I have not yet tested it in Opera, Safari, any text-based browser, or any Apple device.
+- My weakest area in web design in positioning elements correctly.   At present the links in the navigation bar do not adjust properly with change of viewport size, in fact they drop out of their container when my responsive layout switches to sub-769-pixel width. 
 
 ## Deployment
 
