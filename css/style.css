@@ -223,7 +223,7 @@ for desktop:                                 */
         float: left;
         color: var(--alt-text-col);
         font-size: 5vw;
-        margin-top: 0px;
+        margin-top: 0;
         padding-top: 0;        
         text-shadow: -0.15vw -0.15vw 0.32vw var(--light-text-col);
 }
@@ -344,7 +344,11 @@ code:hover {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    width:100%;
+    height: auto;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
 /*

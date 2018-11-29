@@ -6,7 +6,9 @@ I have a passion for mathematics and for coding, and I love using mathematics an
 
 I had been intending to build this website for the past couple of years but did not have the necessary CSS skills.   The Code Institute course put me on the right track with a structure for learning, and finally I have been able to build it.
 
-The original aim was just to be able to present to the world some of the interesting and sometimes stunning images I have produced with a Java program I have been developing for several years.   A secondary aim was to be able to offer some of these images for sale in material form, as in posters, prints, T-shirts etc.   As I gained coding experience realised that in order to get work as a developer I needed to have a portal to show my coding skills and offer my services, so this became a third aim.   Finally, dicovering fragment shader coding for the GPU gave me a new passion, and I am delighted to be able to show off some of the shaders I have built as embedded iframes.
+The original aim was just to be able to present to the world some of the interesting and sometimes stunning images I have produced with a Java program I have been developing for several years.   A secondary aim was to be able to offer some of these images for sale in material form, as in posters, prints, T-shirts etc.
+
+As I gained coding experience realised that in order to get work as a developer I needed to have a portal to show my coding skills and offer my services, so this became a third aim.   Finally, dicovering fragment shader coding for the GPU gave me a new passion, and I am delighted to be able to show off some of the shaders I have built as embedded iframes.
 
 ## UX
 
