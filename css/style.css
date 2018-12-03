@@ -33,7 +33,7 @@ body {
         padding: 2vh 0.5vw 2vh 0.5vw;
 }
 
-.navbar {
+.navbar, .nav {
     position: relative;
     text-align: top;        
 }
@@ -221,7 +221,7 @@ for desktop:                                 */
 .site-name {
         float: left;
         color: var(--alt-text-col);
-        font-size: 8vh;
+        font-size: 4vw;
         margin-top: 0;
         padding-top: 0;        
         text-shadow: -0.15vw -0.15vw 0.32vw var(--light-text-col);
