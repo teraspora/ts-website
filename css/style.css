@@ -243,7 +243,9 @@ for desktop:                                 */
         padding-left: 2vw;
         padding-right: 2vw;
         margin-top: 0px;
-        padding-top: 0;   
+        padding-top: 0;
+        align-self: center;
+        justify-items: center;   
 }
 
 .email {
