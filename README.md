@@ -86,7 +86,7 @@ I pushed my local git repo of code, images and media to a Github repository, and
 <li>and finally, on old-fashioned paper, a very good 1080-page book by David Flanagan, called <span class="book-title">&quot;Javascript: The Definitive Guide&quot;</span>.</li>
 </ul>
 <p>
-	Also important in my software dev journey have been my former maths teacher at school, Dave Bennett, who first kindled my interest in coding and had us punching holes in cards to create Fortran programs which we would send by post to Imperial College in London for processing; and another former teacher, Ed O'Reilly, who (while the world's financial system was collapsing) taught me Visual Basic .NET, Java and the fundamentals of software testing at the FAS Centre in Bishopstown, Cork, gave me an understanding of OOP and helped me get qualified as a Microsoft Certified Professional and a Sun Certified Jave Programmer. 
+	Also important in my software dev journey have been my former maths teacher at school, Dave Bennett, who first kindled my interest in coding and had us punching holes in cards to create Fortran programs which we would send by post to Imperial College in London for processing; and another former teacher, Ed O'Reilly, who (while the world's financial system was collapsing) taught me Visual Basic .NET, Java and the fundamentals of software testing at the FAS Centre in Bishopstown, Cork, gave me an understanding of OOP and helped me get qualified as a Microsoft Certified Professional and a Sun Certified Java Programmer. 
 </p>
 <p>
 	Finally, I must acknowledge the very positive reaction to my fractal images and movies from many friends, without which I probably wouldn't have been motivated to build this site.
