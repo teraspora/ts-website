@@ -64,11 +64,11 @@ It was tested continually as I developed it, in Firefox Developer Edition v.63.0
 I used responsive mode in the dev tools and resizing the viewport to find unwanted behaviour so as to correct it.   I also checked the appearance on both my phone and tablet (both Android) in Chrome and Dolphin browsers.
 ### To do
 - I have not yet tested it in Opera, Safari, any text-based browser, or any Apple device.
-- My weakest area in web design in positioning elements correctly.   At present the links in the navigation bar do not adjust properly with change of viewport size, in fact they drop out of their container when my responsive layout switches to sub-769-pixel width. 
+- My weakest area in web design in positioning elements correctly.   At present the Shadertoy icon does not adjust its size when the viewport is scaled down.    
 
 ## Deployment
 
-I pushed my local git repo of code, images and media to a Github repository, and enabled Github Pages for it.   There is only one branch, master.
+I pushed my local git repo of code, images and media to a Github repository, and enabled Github Pages for it.   There is only one branch, master.   I have also deployed it to my own domain, at <a target="_blank" href="https://www.teraspora.net">teraspora.net</a>
 
 ## Acknowledgements
 
@@ -85,5 +85,11 @@ I pushed my local git repo of code, images and media to a Github repository, and
 <li>The code-institute-room at <a target="_blank" href="https://slack.com/">Slack</a>, </li>
 <li>and finally, on old-fashioned paper, a very good 1080-page book by David Flanagan, called <span class="book-title">&quot;Javascript: The Definitive Guide&quot;</span>.</li>
 </ul>
+<p>
+	Also important in my software dev journey have been my former maths teacher at school, Dave Bennett, who first kindled my interest in coding and had us punching holes in cards to create Fortran programs which we would send by post to Imperial College in London for processing; and another former teacher, Ed O'Reilly, who (while the world's financial system was collapsing) taught me Visual Basic .NET, Java and the fundamentals of software testing at the FAS Centre in Bishopstown, Cork, gave me an understanding of OOP and helped me get qualified as a Microsoft Certified Professional and a Sun Certified Jave Programmer. 
+</p>
+<p>
+	Finally, I must acknowledge the very positive reaction to my fractal images and movies from many friends, without which I probably wouldn't have been motivated to build this site.
+</p>
 
-Finally, I must acknowledge the very positive reaction to my fractal images and movies from many friends, without which I probably wouldn't have been motivated to build this site.
+
