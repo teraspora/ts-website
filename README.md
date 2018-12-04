@@ -38,6 +38,16 @@ As I gained coding experience realised that in order to get work as a developer 
 - Online shop for prints of the fractal images
 - Smooth integration with my Digital Art Workshop, which forms the substance of my second Code Institute project
 - Tutorials where I share some of the experience I have gained with coding, and with software development in general.
+- Continue displaying an image until another has fully downloaded, to give a better UX for users on slow connections.
+
+## Design Decisions
+
+- I decided to go with the classic format of header with navigation, footer with social media links, and two panels in between, divided in the ratio 2:1 on larger screens in landscape mode, and stacked vertically on smaller screens in portrait mode.
+- I used the same basic format for every page in order to create consistency and predictability in the UX.
+- I opted for a dark background with lighter text (a) as a way of making it "stand out from the pack" and (b) because I like the combination of yellow/orange on dark blue.   That's how I configure Bash!
+- I chose to make all external links open in a new tab so as not to lose the user.
+- I chose to make the navigation links expand a little and change colour when hovered upon, so as to encourage the user to explore my site.
+- I ensured that there is never any need for the user to use the "Back" button.
 
 ## Technologies Used
 
@@ -59,16 +69,18 @@ As I gained coding experience realised that in order to get work as a developer 
 
 ## Testing
 
-It was tested continually as I developed it, in Firefox Developer Edition v.63.0 (64-bit) and Chromium v.69.0, using both Firefox and Chromium developer tools, and nearing the conclusion of the project also on other physical devices.
+It was tested continually as I developed it, in Firefox Developer Edition v.6? (64-bit) and Chromium vv.69 & 70, using both Firefox and Chromium developer tools, and nearing the conclusion of the project also on other physical devices.
 
-I used responsive mode in the dev tools and resizing the viewport to find unwanted behaviour so as to correct it.   I also checked the appearance on both my phone and tablet (both Android) in Chrome and Dolphin browsers.
+I used responsive mode in the dev tools and resizing the viewport to find unwanted behaviour so as to correct it.   I also periodically checked the appearance on both my phone and tablet (both Android) in Chrome and Dolphin browsers.
+
 ### To do
 - I have not yet tested it in Opera, Safari, any text-based browser, or any Apple device.
-- My weakest area in web design in positioning elements correctly.   At present the Shadertoy icon does not adjust its size when the viewport is scaled down.    
+- My weakest area in web design in positioning elements correctly.   At present the Shadertoy icon does not adjust its size when the viewport is scaled down.
+- I will probably change the navbar to be a subgrid instead of floating elements.   
 
 ## Deployment
 
-I pushed my local git repo of code, images and media to a Github repository, and enabled Github Pages for it.   There is only one branch, master.   I have also deployed it to my own domain, at <a target="_blank" href="https://www.teraspora.net">teraspora.net</a>
+I pushed my local git repo of code, images and media to a Github repository, and enabled Github Pages for it.   There is only one branch, master. URL of Home Page is <a href="https://teraspora.github.io/ts-website/index.html">here</a>.
 
 ## Acknowledgements
 
