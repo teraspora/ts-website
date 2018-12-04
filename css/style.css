@@ -187,7 +187,7 @@ for desktop:                                 */
         font-size: 1.7vw;
         font-weight:normal;
         text-align: center;
-        color: var(--light-text-col); 
+        color: var(--alt-text-col); 
 }
 
 .blog-title a {
@@ -306,12 +306,6 @@ code:hover {
 
 #sug {
     text-decoration: underline;
-}
-
-.iframe-wrapper {
-    position: relative;
-    overflow: hidden;
-    padding-top: 56.25%;
 }
 
 .ifrm-left {
