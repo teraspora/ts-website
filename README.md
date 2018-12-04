@@ -73,6 +73,10 @@ It was tested continually as I developed it, in Firefox Developer Edition v.6? (
 
 I used responsive mode in the dev tools and resizing the viewport to find unwanted behaviour so as to correct it.   I also periodically checked the appearance on both my phone and tablet (both Android) in Chrome and Dolphin browsers.
 
+Testing in the W3C HTML Validator threw up an error due to having a pipe character in the query string for the Google Fonts URL in my `<link>` tags.   This is, however, the exact format given by Google Fonts so I am leaving it in.
+
+Testing my CSS in the Jigsaw validator revealed that it doesn't like CSS Custom Properties, which I have used for my colours.   This is seemingly because they are officially still not part of the spec; but I am not removing them as they are pretty  much universally implemented in current browsers, and personally I would like to help educate the public to use up-to-date browsers, and so for this project - my personal website - I am happy to use them, and it does not bother me a lot if I lose traffic because of out-of-date browsers.
+
 ### To do
 - I have not yet tested it in Opera, Safari, any text-based browser, or any Apple device.
 - My weakest area in web design in positioning elements correctly.   At present the Shadertoy icon does not adjust its size when the viewport is scaled down.
