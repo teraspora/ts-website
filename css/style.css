@@ -359,7 +359,7 @@ code:hover {
 }
 
 /*
-Font Awsome styling for social icons:
+Font Awesome styling for social icons:
 */
 /* social media links in footer */
 .social-icon {
@@ -371,7 +371,6 @@ ul.social-icons {
 .social-icons li {
     vertical-align: top;
     display: inline;
-    height: 100px;
 }
 .social-icons a {
     color: #fff;
@@ -405,5 +404,9 @@ ul.social-icons {
     background-color: #f321b7;
     -webkit-transition: 0.6s;
     -o-transition: 0.6s;
-    transition: 0.6s;    
+    transition: 0.6s;
+}
+.icon-st img {
+    height: 2vw;
+    max-width: 100%;    
 }

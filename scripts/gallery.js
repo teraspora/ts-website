@@ -6,7 +6,7 @@ slides[current].style.opacity = 1;
 
 setInterval(function() {
   last = current;
-  current = nextImageIndex();
+  current = nextImageIndex(); 
   slides[last].style.opacity = 0;  
   slides[current].style.opacity = 1;
 }, 5000);
