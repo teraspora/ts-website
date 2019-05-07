@@ -108,4 +108,4 @@ I pushed my local git repo of code, images and media to a Github repository, and
 	Finally, I must acknowledge the very positive reaction to my fractal images and movies from many friends, without which I probably wouldn't have been motivated to build this site.
 </p>
 
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1330e55b-bb23-41ad-a695-d7690309c7f0/deploy-status)](https://app.netlify.com/sites/trusting-stallman-75e5d3/deploys)
