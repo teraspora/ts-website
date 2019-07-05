@@ -154,13 +154,13 @@ for desktop:                                 */
         padding-right: 1vw;
 }
 
-.main-nav li a {
+.main-nav li a, main a {
         display: inline-block;
         color: var(--light-text-col);
         text-decoration: none;  
 }
 
-.main-nav li a:hover {
+.main-nav li a:hover, main a:hover {
         color: var(--hover-col);
         -webkit-transform: scale(1.04);
             -ms-transform: scale(1.04);
