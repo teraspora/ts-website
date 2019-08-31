@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<title>teraspora</title>
+<meta name="description" content="The Art of Mathematics">
+<meta name="author" content="John Lynch">
+<link href="https://fonts.googleapis.com/css?family=Mali|Rubik" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="grid">
+  <header class="navbar">
+    <span class="site-name">
+      <a href="index.html">teraspora</a> 
+    </span>
+    <nav class = "nav">
+      <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Art</a></li>
+        <li><a href="coding.html">Coding</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="food.html">Food</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="blog-article">
+      <h1>How to create custom keyboard shortcuts in Thunar File Manager</h1>
+      <p><code>$ cd ~/.config/Thunar</code></p>
+      <p>Open <code>uca.xml</code> and <code>accels.scm</code>.</p>
+      <p>In <code>uca.xml</code>, copy the <code>&lt;unique-id&gt;</code> value (a numeric string) for the custom action (e.g. &quot;Open Terminal Here&quot;) you want to target.</p>
+      <p>Search for it in <code>accels.scm</code>.   You will find it in a line of this form:</p>
+      <p><code>; (gtk_accel_path &quot;&lt;Actions&gt;/ThunarActions/uca-action-1552605449573546-1&quot; &quot;&quot;)</code></p>
+      <p>Check your preferred custom keyboard shortcut in Thunar to ensure it currently has no effect.</p>
+      <p>Then add it inside the second pair of quotes and remove the <code>;</code> at the start so as to uncomment the line, giving, for example</p>
+      <p><code>(gtk_accel_path &quot;&lt;Actions&gt;/ThunarActions/uca-action-1552605449573546-1&quot; &quot;&lt;Alt&gt;t&quot;)</code>.</p>
+      <p>Save the file, log out and in, and it should work.</p>
+      <h2 id="notes-">Notes:</h2>
+      <p><code>&lt;Alt&gt;</code>, <code>&lt;Shift&gt;</code> are self-explanatory, <code>&lt;Primary&gt;</code> means the Control key.
+      Function keys are typed as <code>F1</code>, <code>F2</code> etc.   Just append the target key to the modifier, so <code>&lt;Primary&gt;x</code>, <code>&lt;Alt&gt;p</code> etc..</p>
+
+  </main>
+
+  <aside class="info">
+    <img src="images/img57517.png" alt="fractal image">
+  </aside>
+
+  <footer class = "footer">
+      <div class="social-wrapper">
+        <ul class="social-icons">
+            <li><a target="_blank"
+              href="https://twitter.com/teraspora" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank"
+              href="https://github.com/teraspora" class="social-icon"> <i class="fa fa-github"></i></a></li>
+            <li><a target="_blank"
+              href="https://www.linkedin.com/in/john-lynch-ballydehob/" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
+            <li><a target="_blank"
+              href="https://www.shadertoy.com/user/teraspora" class="social-icon"> <i class="icon icon-st"><img src="media/shadert.jpg" alt=""></i></a></li>
+        </ul> 
+      </div>
+    </footer>
+</div>
+
+</body>
+</html>
