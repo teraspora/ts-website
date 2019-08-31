@@ -407,3 +407,8 @@ ul.social-icons {
 strong {
     color: var(--alt-text-col);
 }
+
+.line-under {
+    padding-bottom: 1vw;
+    border-bottom: 2px outset var(--alt-text-col); 
+}
