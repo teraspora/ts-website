@@ -401,3 +401,9 @@ ul.social-icons {
     height: 2vw;
     max-width: 100%;    
 }
+
+/* Additions August 2019 */
+
+strong {
+    color: var(--alt-text-col);
+}
