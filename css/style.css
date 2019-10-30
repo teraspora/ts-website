@@ -48,6 +48,7 @@ main {
         padding-left: 1vw;
         padding-right: 1vw;
         position: relative;
+        overflow: hidden;
 }
 
 footer {
@@ -411,4 +412,8 @@ strong {
 .line-under {
     padding-bottom: 1vw;
     border-bottom: 2px outset var(--alt-text-col); 
+}
+
+.side-img-wrapper {
+    overflow: hidden;
 }
