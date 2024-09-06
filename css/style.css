@@ -415,5 +415,6 @@ strong {
 }
 
 .side-img-wrapper {
+    text-align: center;
     overflow: hidden;
 }
