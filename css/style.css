@@ -39,7 +39,8 @@ body {
 }
 
 main {
-        position: relative;
+    position: relative;
+    padding-inline: 1vw;
 }
 
 .info {
