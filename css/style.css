@@ -1,6 +1,6 @@
 /* quasi-global styles */
 
-* {
+*:not(.line-under)  {
         /*box-sizing: border-box;
         */font-size: 100%;
         --bg-col: #010012;
@@ -45,7 +45,7 @@ main {
 
 .info {
         font-family: 'Mali', cursive;
-        font-size: 1.5vw;
+        font-size: 1.0vw;
         padding-left: 1vw;
         padding-right: 1vw;
         position: relative;
@@ -197,7 +197,7 @@ for desktop:                                 */
 
 .blog-article p {
         font-family: 'Rubik', sans-serif;
-        font-size: 1.5vw;
+        font-size: 1.0vw;
         text-align: left;
         padding-left: 2vw;
         padding-right: 2vw;
@@ -214,7 +214,7 @@ for desktop:                                 */
 }
 
 /*  misc....                                                          */
-.grid > * {
+.grid > *:not(.navbar) {
         border: 0.1vmax ridge var(--border-col);    
 }
 
@@ -265,7 +265,7 @@ pre code {
         color: var(--alt-text-col); 
         display: block;
         padding: 1vmax;
-        font-size: 1.5vw;
+        font-size: 1.3vw;
 }
 p code {
         font-family: 'Source Code Pro', monospace;
@@ -279,7 +279,7 @@ code.code-boxed {
 
 code.code-unboxed {
         padding: 0;
-        font-size: 1.5vw;
+        font-size: 1.3vw;
 
 }
 
@@ -322,7 +322,7 @@ code:hover {
     margin: auto;
 }
 .book-title {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     color: var(--alt-text-col);
 }
 
@@ -331,7 +331,7 @@ code:hover {
 }
 .big-link {
     font-family: 'Mali', cursive;
-    font-size: 3vw;
+    font-size: 2.8vw;
 }
 
 .gallery {
@@ -413,6 +413,7 @@ strong {
 .line-under {
     padding-bottom: 1vw;
     border-bottom: 2px outset var(--alt-text-col); 
+    border-radius: none;
 }
 
 .side-img-wrapper {
