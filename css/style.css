@@ -20,6 +20,10 @@ body {
     padding: 0;
 }
 
+body#food {
+    font-size: 150%;
+}
+
 .grid {
         height: 100vh;
         background-color: var(--bg-col);
