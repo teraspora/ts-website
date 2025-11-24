@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-date-fns/3.0.0/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <style>
+        :root {
+            /* Color scheme - easily customizable */
+            --bg-primary: #0a3d3d;
+            --bg-secondary: #0f5252;
+            --bg-card: #134545;
+            --bg-hover: #1a5a5a;
+            --text-primary: #f0e6d2;
+            --text-secondary: #d4c5a9;
+            --text-muted: #a89b7e;
+            --accent-gold: #d4af37;
+            --accent-teal: #5fd3bc;
+            --border-color: #1a5a5a;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--text-primary);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 1rem;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .input-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-section label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .input-section input, .input-section textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-family: monospace;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .input-section input:focus, .input-section textarea:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 3px rgba(95, 211, 188, 0.2);
+        }
+        
+        .input-section textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #c9a135 100%);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px var(--shadow-color);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        
+        .controls {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 1rem;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            padding: 1.5rem;
+            height: fit-content;
+            border: 1px solid var(--border-color);
+        }
+        
+        .controls h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+        
+        .person-toggle {
+            display: flex;
+            align-items: center;
+            padding: 0.625rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .person-toggle:hover {
+            background-color: var(--bg-hover);
+        }
+        
+        .person-toggle input[type="checkbox"] {
+            margin-right: 0.75rem;
+            width: 1.125rem;
+            height: 1.125rem;
+            cursor: pointer;
+            accent-color: var(--accent-teal);
+        }
+        
+        .person-toggle label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+        }
+        
+        .color-box {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            margin-right: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chart-section {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 1rem;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 600px;
+            background-color: rgba(15, 82, 82, 0.3);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        
+        .helper-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Weight Tracker</h1>
+            
+            <div class="input-section">
+                <label for="personName">Name:</label>
+                <input type="text" id="personName" placeholder="e.g., John">
+            </div>
+            
+            <div class="input-section">
+                <label for="weightData">Weight Data:</label>
+                <textarea id="weightData" placeholder="Enter data in format:
+2025-10-06	63.7
+2025-10-07	64.1
+2025-10-08	64.3"></textarea>
+                <div class="helper-text">Format: Date (YYYY-MM-DD) [tab or spaces] Weight (kg)</div>
+            </div>
+            
+            <button onclick="addPerson()">Add Person</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="controls">
+                <h2>Show/Hide</h2>
+                <div id="personToggles"></div>
+            </div>
+            
+            <div class="chart-section">
+                <div class="chart-container">
+                    <canvas id="weightChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const colors = [
+            '#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6',
+            '#ec4899', '#06b6d4', '#84cc16', '#f97316', '#6366f1'
+        ];
+        
+        let people = [];
+        let chart = null;
+        
+        function parseWeightData(dataString) {
+            const lines = dataString.trim().split('\n');
+            const data = [];
+            
+            for (const line of lines) {
+                const parts = line.trim().split(/\s+/);
+                if (parts.length >= 2) {
+                    const date = parts[0];
+                    const weight = parseFloat(parts[1]);
+                    if (date && !isNaN(weight)) {
+                        data.push({ date, weight });
+                    }
+                }
+            }
+            
+            // Group by date and calculate mean
+            const grouped = data.reduce((acc, item) => {
+                if (!acc[item.date]) {
+                    acc[item.date] = [];
+                }
+                acc[item.date].push(item.weight);
+                return acc;
+            }, {});
+            
+            return Object.keys(grouped).sort().map(date => ({
+                date,
+                weight: Number((grouped[date].reduce((a, b) => a + b, 0) / grouped[date].length).toFixed(1))
+            }));
+        }
+        
+        function addPerson() {
+            const name = document.getElementById('personName').value.trim();
+            const dataString = document.getElementById('weightData').value.trim();
+            
+            if (!name) {
+                alert('Please enter a name');
+                return;
+            }
+            
+            if (!dataString) {
+                alert('Please enter weight data');
+                return;
+            }
+            
+            const data = parseWeightData(dataString);
+            
+            if (data.length === 0) {
+                alert('No valid weight data found. Please check the format.');
+                return;
+            }
+            
+            const person = {
+                name,
+                data,
+                visible: true,
+                color: colors[people.length % colors.length]
+            };
+            
+            people.push(person);
+            
+            document.getElementById('personName').value = '';
+            document.getElementById('weightData').value = '';
+            
+            updateToggles();
+            updateChart();
+        }
+        
+        function updateToggles() {
+            const container = document.getElementById('personToggles');
+            container.innerHTML = '';
+            
+            people.forEach((person, index) => {
+                const div = document.createElement('div');
+                div.className = 'person-toggle';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = person.visible;
+                checkbox.id = `toggle-${index}`;
+                checkbox.onchange = () => togglePerson(index);
+                
+                const label = document.createElement('label');
+                label.htmlFor = `toggle-${index}`;
+                
+                const colorBox = document.createElement('span');
+                colorBox.className = 'color-box';
+                colorBox.style.backgroundColor = person.color;
+                
+                label.appendChild(colorBox);
+                label.appendChild(document.createTextNode(person.name));
+                
+                div.appendChild(checkbox);
+                div.appendChild(label);
+                container.appendChild(div);
+            });
+        }
+        
+        function togglePerson(index) {
+            people[index].visible = !people[index].visible;
+            updateChart();
+        }
+        
+        function updateChart() {
+            const ctx = document.getElementById('weightChart').getContext('2d');
+            
+            if (chart) {
+                chart.destroy();
+                chart = null;
+            }
+            
+            // Get all unique dates across all visible people
+            const allDates = new Set();
+            people.filter(p => p.visible).forEach(person => {
+                person.data.forEach(d => allDates.add(d.date));
+            });
+            const sortedDates = Array.from(allDates).sort();
+            
+            // Format dates for display
+            const labels = sortedDates.map(date => {
+                const d = new Date(date);
+                return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            });
+            
+            const datasets = people
+                .filter(person => person.visible)
+                .map(person => {
+                    // Create a map of date to weight
+                    const weightMap = {};
+                    person.data.forEach(d => {
+                        weightMap[d.date] = d.weight;
+                    });
+                    
+                    // Map to the sorted dates, using null for missing dates
+                    const data = sortedDates.map(date => weightMap[date] || null);
+                    
+                    return {
+                        label: person.name,
+                        data: data,
+                        borderColor: person.color,
+                        backgroundColor: person.color,
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        tension: 0,
+                        spanGaps: true
+                    };
+                });
+            
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: { 
+                    labels: labels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(context) {
+                                    return sortedDates[context[0].dataIndex];
+                                },
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y + ' kg';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            min: 55,
+                            max: 75,
+                            title: {
+                                display: true,
+                                text: 'Weight (kg)',
+                                color: '#d4c5a9'
+                            },
+                            ticks: {
+                                color: '#d4c5a9'
+                            },
+                            grid: {
+                                color: 'rgba(95, 211, 188, 0.1)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date',
+                                color: '#d4c5a9'
+                            },
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45,
+                                color: '#d4c5a9'
+                            },
+                            grid: {
+                                color: 'rgba(95, 211, 188, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Initialize with John's data
+        const johnData = `2025-10-06	63.7
+2025-10-07	64.1
+2025-10-08	64.3
+2025-10-09	64.4
+2025-10-10	64.3
+2025-10-11	64.1
+2025-10-12	63.7
+2025-10-13	63.7
+2025-10-14	64.3
+2025-10-15	63.9
+2025-10-16	64.7
+2025-10-17	64.8
+2025-10-18	64.3
+2025-10-19	64.5
+2025-10-20	64.5
+2025-10-22	65.0
+2025-10-23	65.1
+2025-10-26	64.9
+2025-10-28	64.3
+2025-10-30	64.4
+2025-10-31	64.2
+2025-11-01	64.1
+2025-11-02	63.2
+2025-11-05	63.8
+2025-11-06	64.4
+2025-11-10	64.6
+2025-11-11	64.2
+2025-11-12	63.9
+2025-11-13	64.2
+2025-11-13	65.0
+2025-11-15	65.3
+2025-11-17	65.6
+2025-11-17	65.2
+2025-11-19	65.7
+2025-11-21	65.5
+2025-11-22	65.1
+2025-11-23	65.3`;
+
+        document.getElementById('personName').value = 'John';
+        document.getElementById('weightData').value = johnData;
+        addPerson();
+    </script>
+</body>
+</html>
