@@ -6,7 +6,7 @@
     --bg-pale-blue: #7bc2f7;
     --text-col: #fceae3;
     --border-col: #00adff;
-    --light-text-col: #ffb700;
+    --light-text-col: #ff7b00;
     --alt-text-col: #0085f7;
     --hover-col: #ff4b00;
     --code-bg-col: #111111;
@@ -173,7 +173,7 @@ for desktop:                                 */
 
 .main-nav li a, main a {
     display: inline-block;
-    color: var(--text-col);
+    color: var(--light-text-col);
     text-decoration: none;
     padding: 0.25rem 0.5rem;
     border-radius: 6px;
@@ -330,18 +330,17 @@ pre code {
 }
 p code {
         font-family: 'Source Code Pro', monospace;
-        color: var(--alt-text-col); 
+        color: var(--alt-text-col);
 }
 
 code.code-boxed {
         border: 0.1vmax solid var(--light-text-col);
-
+        width: fit-content;
 }
 
 code.code-unboxed {
         padding: 0;
         font-size: 1.3vw;
-
 }
 
 code:hover {
@@ -466,10 +465,28 @@ strong {
 .diagonal-links li { margin: clamp(0.5rem,3vh,1.5rem) 0; margin-left: calc(var(--i) * 18vw); font-size: clamp(1.8rem,4.5vw,4rem); transform: rotate(-6deg); }
 .diagonal-links a { color: var(--alt-text-col); text-decoration: none; font-weight: 700; letter-spacing: 0.02em; font-family: var(--font-mono); font-size: clamp(1.8rem,4.5vw,4rem); }
 
-.intro-fade { max-width: min(70ch, var(--max-width)); margin: auto; text-align: left; opacity: 0; animation: fadeIn 4s ease-in-out 2s forwards; color: var(--text-col); font-family: var(--font-sans); font-size: clamp(0.95rem,1.2vw,1.1rem); padding: 1rem; background: rgba(255,255,255,0.02); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.03); position: absolute; top: 14vh; right: 6vw; width: clamp(220px, 35vw, 440px); }
+.intro-fade {
+     max-width: min(70ch, var(--max-width));
+     margin: auto;
+     text-align: left;
+     opacity: 0;
+     animation: fadeIn 4s ease-in-out 2s forwards;
+     color: var(--light-text-col);
+     font-family: var(--font-sans);
+     font-size: clamp(0.95rem,1.2vw,1.1rem);
+     padding: 1rem;
+     background: rgba(255,255,255,0.02);
+     border-radius: var(--radius);
+     border: 1px solid rgba(255,255,255,0.03);
+     position: absolute;
+     top: 14vh;
+     right: 6vw;
+     width: clamp(220px, 35vw, 440px);
+ }
 
 /* Collapsible Technical Info styling */
-.technical-info { max-width: 40ch; background: rgba(255,255,255,0.02); padding: 0.8rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.03); }
+.technical-info { max-width: 40ch;
+     background: rgba(255,255,255,0.02); padding: 0.8rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.03); }
 .technical-info summary { list-style: none; cursor: pointer; font-family: var(--font-mono); color: var(--alt-text-col); font-weight: 600; }
 .technical-info summary::-webkit-details-marker { display:none; }
 .technical-info .technical-body { margin-top: 0.6rem; font-size: 0.95rem; color: var(--text-col); }
