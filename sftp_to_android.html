@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<title>Transfer Files between Android and Linux</title>
+<meta name="description" content="How to transfer files between an Android phone and a Linux laptop using SFTP.">
+<meta name="author" content="John Lynch">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body id="food">
+
+<div class="grid">
+	<header class="navbar">
+		<span class="site-name">
+			<a href="index.html">teraspora</a>
+		</span>
+		<nav class="nav">
+			<ul class="main-nav">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="gallery.html">Art</a></li>
+				<li><a href="coding.html">Coding</a></li>
+				<li><a href="music.html">Music</a></li>
+				<li><a href="food.html">Food</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="blog-article tut">
+		<h1>How to Transfer Files between Android and Linux</h1>
+		<p>This tutorial shows how to transfer files between a Linux laptop and an Android phone using SFTP (SSH File Transfer Protocol) from the Linux terminal.</p>
+		<p>In the past, tools such as <code>telnet</code> and <code>ftp</code> were commonly used to transfer files across a network. <code>sftp</code> is the modern, secure equivalent of <code>ftp</code>, while <code>ssh</code> has largely replaced the insecure <code>telnet</code>. <code>sftp</code> is a sub-protocol of <code>ssh</code>, so it shares its authentication, encryption and host-key checking. Note that when installed through Termux, it uses port 8022 rather than the standard <code>ssh</code> port, 22.</p>
+
+		<h3>The basic process</h3>
+		<p>Follow these steps to get set up and start transferring files:</p>
+		<ol>
+			<li>Install Termux, a terminal emulator, on your Android phone. Check its local IP address (we will assume <code>192.168.6.140</code> for this example) and username (for example, <code>u0_a999</code>). Set a password for your user.</li>
+			<li>In the Termux shell, install OpenSSH.</li>
+			<li>Ensure the <code>sshd</code> daemon is running. Typing <code>sshd</code> should start it.</li>
+			<li>On your Linux laptop, ensure that an OpenSSH client is installed. This should provide <code>sftp</code> out of the box.</li>
+			<li>Connect to your phone with <code>sftp</code>. For simplicity, run this from the directory where you want to save files:</li>
+		</ol>
+		<pre><code>$ sftp -P 8022 -o "ConnectTimeout=5" u0_a999@192.168.6.140</code></pre>
+		<p>Edit the username and IP address in the command as required.</p>
+		<ol start="6">
+			<li>Use standard Bash-like commands to navigate the remote filesystem. For your local filesystem, prefix standard commands with <code>l</code> for “local”: <code>ls</code> becomes <code>lls</code>, and <code>cd</code> becomes <code>lcd</code>.</li>
+			<li>Use <code>get</code> to pull a file from the phone to your laptop, and <code>put</code> to send a file to the phone.</li>
+		</ol>
+
+		<h3>Example session</h3>
+		<pre><code>21:15: ~ ⦿ pwd
+/home/john
+
+21:15: ~ ⦿ sftp -P 8022 -o "ConnectTimeout=5" u0_a283@192.168.6.140
+u0_a283@192.168.6.140's password:
+Connected to 192.168.6.140.
+sftp&gt; lpwd
+Local working directory: /home/john
+sftp&gt; pwd
+Remote working directory: /data/data/com.termux/files/home
+sftp&gt; cd storage/shared/Recordings/
+sftp&gt; lcd /d25/recordings/
+sftp&gt; lls trad*
+trad2.m4a  trad3.m4a  trad4.m4a  trad5.m4a
+sftp&gt; get trad2.m4a
+File "/storage/emulated/0/Recordings/trad2.m4a" not found.
+sftp&gt; cd Voice\ Recorder/
+sftp&gt; get trad2.m4a
+Fetching /storage/emulated/0/Recordings/Voice Recorder/trad2.m4a to trad2.m4a
+trad2.m4a  100%   28MB   6.2MB/s   00:04
+sftp&gt; ls trad*
+trad2.m4a  trad3.m4a  trad4.m4a  trad5.m4a
+sftp&gt; rm
+You must specify a path after a rm command.
+sftp&gt; rm trad*
+Removing /storage/emulated/0/Recordings/Voice Recorder/trad2.m4a
+Removing /storage/emulated/0/Recordings/Voice Recorder/trad3.m4a
+Removing /storage/emulated/0/Recordings/Voice Recorder/trad4.m4a
+Removing /storage/emulated/0/Recordings/Voice Recorder/trad5.m4a
+sftp&gt; put trad*
+Uploading trad2.m4a to /storage/emulated/0/Recordings/Voice Recorder/trad2.m4a
+trad2.m4a  100%   28MB   6.3MB/s   00:04
+Uploading trad3.m4a to /storage/emulated/0/Recordings/Voice Recorder/trad3.m4a
+trad3.m4a  100% 2216KB   4.5MB/s   00:00
+Uploading trad4.m4a to /storage/emulated/0/Recordings/Voice Recorder/trad4.m4a
+trad4.m4a  100%   40MB   7.2MB/s   00:05
+Uploading trad5.m4a to /storage/emulated/0/Recordings/Voice Recorder/trad5.m4a
+trad5.m4a  100% 4373KB   2.9MB/s   00:01
+sftp&gt;
+[2]+  Stopped                 sftp -P 8022 -o "ConnectTimeout=5" u0_a283@192.168.6.140
+
+21:26: ~ ⦿ cd /d25/recordings/
+
+21:27: recordings ⦿ ll trad*
+-rw-rw---- 1 john john  28M 2026-08-14 21:23 trad2.m4a
+-rw-rw---- 1 john john 2.2M 2026-06-18 23:10 trad3.m4a
+-rw-rw---- 1 john john  40M 2026-06-18 23:10 trad4.m4a
+-rw-rw---- 1 john john 4.3M 2026-06-18 23:10 trad5.m4a
+
+21:27: recordings ⦿ mkdir bak &amp;&amp; mv trad* bak
+
+21:28: recordings ⦿ fg
+sftp -P 8022 -o "ConnectTimeout=5" u0_a283@192.168.6.140 (wd: ~)
+
+sftp&gt; pwd
+Remote working directory: /storage/emulated/0/Recordings/Voice Recorder
+sftp&gt; lpwd
+Local working directory: /media/john/d25/recordings
+sftp&gt; get trad2.m4a trad_sample.m4a # second argument is the destination name
+Fetching /storage/emulated/0/Recordings/Voice Recorder/trad2.m4a to trad_sample.m4a
+trad2.m4a  100%   28MB   6.2MB/s   00:04
+sftp&gt; lls trad*  # lls lists the files in the local directory, i.e on your laptop
+trad_sample.m4a
+sftp&gt; ^D
+
+21:30: recordings ⦿ ll trad*
+-rw-rw---- 1 john john 28M 2026-08-14 21:29 trad_sample.m4a
+
+21:30: recordings ⦿</code></pre>
+	</main>
+
+	<aside class="info side-img-wrapper">
+		<img id="side-image" src="images/Screenshot_20260814_225433_Termux.jpg" alt="Termux SFTP session on Android">
+	</aside>
+
+	<footer class="footer">
+		<div class="social-wrapper">
+			<ul class="social-icons">
+				<li><a target="_blank" href="https://github.com/teraspora" class="social-icon"><i class="fa fa-github"></i></a></li>
+				<li><a target="_blank" href="https://www.linkedin.com/in/john-lynch-ballydehob/" class="social-icon"><i class="fa fa-linkedin"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+</div>
+
+</body>
+</html>

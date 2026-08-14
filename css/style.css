@@ -235,6 +235,38 @@ for desktop:                                 */
 .recipe h3 { font-size: 1.1rem; }
 .recipe p, .recipe ul, .recipe li { font-size: 16px; line-height: 1.6; }
 .recipe ul { padding-left: 1.2rem; }
+.recipe pre {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    background: var(--code-bg-col);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+}
+.recipe pre code { font-size: clamp(0.8rem, 1.3vw, 1rem); line-height: 1.45; white-space: pre; }
+.tut {
+    max-width: 820px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.01);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    line-height: 1.65;
+}
+.tut h1 { font-family: var(--font-mono); font-size: clamp(1.6rem,3.2vw,2.2rem); color: var(--alt-text-col); margin-bottom: 0.25rem; }
+.tut h2, .tut h3, .tut h4 { font-family: var(--font-mono); color: var(--alt-text-col); margin-top: 1.25rem; }
+.tut h3 { font-size: 1.1rem; }
+.tut p, .tut ul, .tut ol, .tut li { font-size: 16px; line-height: 1.6; }
+.tut ul, .tut ol { padding-left: 1.2rem; }
+.tut pre {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    background: var(--code-bg-col);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+}
+.tut pre code { font-size: clamp(0.8rem, 1.3vw, 1rem); line-height: 1.45; white-space: pre; }
 .side-img-wrapper img { max-width: 360px; border-radius: 8px; display:block; margin: 0 auto; }
 .blog-article, .shader, .info {
     overflow: visible;
@@ -328,7 +360,7 @@ pre code {
         padding: 1vmax;
         font-size: 1.3vw;
 }
-p code {
+code {
         font-family: 'Source Code Pro', monospace;
         color: var(--alt-text-col);
 }
