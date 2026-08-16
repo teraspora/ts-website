@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <title>Transfer Files between Android and Linux</title>
-<meta name="description" content="How to transfer files between an Android phone and a Linux laptop using SFTP.">
+<meta name="description" content="'How to transfer files between an Android phone and a Linux laptop using SFTP'.">
 <meta name="author" content="John Lynch">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,8 +40,9 @@
 		<h3>The basic process</h3>
 		<p>Follow these steps to get set up and start transferring files:</p>
 		<ol>
-			<li>Install Termux, a terminal emulator, on your Android phone. Check its local IP address (we will assume <code>192.168.6.140</code> for this example) and username (for example, <code>u0_a999</code>). Set a password for your user.</li>
+			<li>Install Termux, a terminal emulator, on your Android phone. Check its local IP address with <code>ifconfig</code> (we will assume <code>192.168.6.140</code> for this example) and username with <code>whoami</code> (for example, <code>u0_a999</code>). Set a password for your user using <code>passwd</code>.</li>
 			<li>In the Termux shell, install OpenSSH.</li>
+            <pre><code>$ pkg install openssh</code></pre>
 			<li>Ensure the <code>sshd</code> daemon is running. Typing <code>sshd</code> should start it.</li>
 			<li>On your Linux laptop, ensure that an OpenSSH client is installed. This should provide <code>sftp</code> out of the box.</li>
 			<li>Connect to your phone with <code>sftp</code>. For simplicity, run this from the directory where you want to save files:</li>
@@ -53,76 +54,43 @@
 			<li>Use <code>get</code> to pull a file from the phone to your laptop, and <code>put</code> to send a file to the phone.</li>
 		</ol>
 
+<h3>Connecting using a Shared Key</h3>
+		<p>To connect without having to type a password, you can use a shared key pair:</p>
+		<ol>
+			<li>If you have an SSH key pair on your laptop, all well and good. If not, generate one with <code>ssh-keygen</code>.</li>
+			<li>Copy your public key to the phone: <pre><code>ssh-copy-id -p 8022 -i ~/.ssh/id_rsa.pub u0_a999@192.168.6.140</code></pre>
+            or <code>ssh</code> in and paste the public key into <code>~/.ssh/authorized_keys</code> on the phone.</li>
+		</ol>
+		<p>Then you should be able to ssh in and use <code>sftp</code> to transfer files without typing a password.</p>
+        <ul>
+            <li>If you have any problems connecting, check that you have <code>600</code> permissions (rw) on your <code>~/.ssh/authorized_keys</code> file on the phone, and <code>700</code> permissions (rwx) on the parent directory <code>~/.ssh</code>.</li>
+            <li>Also check that the ssh daemon is running: <pre><code>ps aux | grep sshd</code></pre> Kill it if necessary with <code>pkill sshd</code> and restart it with <code>sshd</code>.</li>
+        </ul>
 		<h3>Example session</h3>
-		<pre><code>21:15: ~ ⦿ pwd
-/home/john
-
-21:15: ~ ⦿ sftp -P 8022 -o "ConnectTimeout=5" u0_a283@192.168.6.140
-u0_a283@192.168.6.140's password:
+		<pre><code>
+09:27: scratch ⧓ sftp -P 8022 u0_a999@192.168.6.140
 Connected to 192.168.6.140.
-sftp&gt; lpwd
-Local working directory: /home/john
-sftp&gt; pwd
+sftp> pwd
 Remote working directory: /data/data/com.termux/files/home
-sftp&gt; cd storage/shared/Recordings/
-sftp&gt; lcd /d25/recordings/
-sftp&gt; lls trad*
-trad2.m4a  trad3.m4a  trad4.m4a  trad5.m4a
-sftp&gt; get trad2.m4a
-File "/storage/emulated/0/Recordings/trad2.m4a" not found.
-sftp&gt; cd Voice\ Recorder/
-sftp&gt; get trad2.m4a
-Fetching /storage/emulated/0/Recordings/Voice Recorder/trad2.m4a to trad2.m4a
-trad2.m4a  100%   28MB   6.2MB/s   00:04
-sftp&gt; ls trad*
-trad2.m4a  trad3.m4a  trad4.m4a  trad5.m4a
-sftp&gt; rm
-You must specify a path after a rm command.
-sftp&gt; rm trad*
-Removing /storage/emulated/0/Recordings/Voice Recorder/trad2.m4a
-Removing /storage/emulated/0/Recordings/Voice Recorder/trad3.m4a
-Removing /storage/emulated/0/Recordings/Voice Recorder/trad4.m4a
-Removing /storage/emulated/0/Recordings/Voice Recorder/trad5.m4a
-sftp&gt; put trad*
-Uploading trad2.m4a to /storage/emulated/0/Recordings/Voice Recorder/trad2.m4a
-trad2.m4a  100%   28MB   6.3MB/s   00:04
-Uploading trad3.m4a to /storage/emulated/0/Recordings/Voice Recorder/trad3.m4a
-trad3.m4a  100% 2216KB   4.5MB/s   00:00
-Uploading trad4.m4a to /storage/emulated/0/Recordings/Voice Recorder/trad4.m4a
-trad4.m4a  100%   40MB   7.2MB/s   00:05
-Uploading trad5.m4a to /storage/emulated/0/Recordings/Voice Recorder/trad5.m4a
-trad5.m4a  100% 4373KB   2.9MB/s   00:01
-sftp&gt;
-[2]+  Stopped                 sftp -P 8022 -o "ConnectTimeout=5" u0_a283@192.168.6.140
-
-21:26: ~ ⦿ cd /d25/recordings/
-
-21:27: recordings ⦿ ll trad*
--rw-rw---- 1 john john  28M 2026-08-14 21:23 trad2.m4a
--rw-rw---- 1 john john 2.2M 2026-06-18 23:10 trad3.m4a
--rw-rw---- 1 john john  40M 2026-06-18 23:10 trad4.m4a
--rw-rw---- 1 john john 4.3M 2026-06-18 23:10 trad5.m4a
-
-21:27: recordings ⦿ mkdir bak &amp;&amp; mv trad* bak
-
-21:28: recordings ⦿ fg
-sftp -P 8022 -o "ConnectTimeout=5" u0_a283@192.168.6.140 (wd: ~)
-
-sftp&gt; pwd
-Remote working directory: /storage/emulated/0/Recordings/Voice Recorder
-sftp&gt; lpwd
-Local working directory: /media/john/d25/recordings
-sftp&gt; get trad2.m4a trad_sample.m4a # second argument is the destination name
-Fetching /storage/emulated/0/Recordings/Voice Recorder/trad2.m4a to trad_sample.m4a
-trad2.m4a  100%   28MB   6.2MB/s   00:04
-sftp&gt; lls trad*  # lls lists the files in the local directory, i.e on your laptop
-trad_sample.m4a
-sftp&gt; ^D
-
-21:30: recordings ⦿ ll trad*
--rw-rw---- 1 john john 28M 2026-08-14 21:29 trad_sample.m4a
-
-21:30: recordings ⦿</code></pre>
+sftp> cd storage/shared/Temp/
+sftp> ls
+getme.txt  test.txt   
+sftp> lpwd
+Local working directory: /home/john/scratch
+sftp> lls
+putme.txt
+sftp> get getme.txt renamed_getme.txt
+Fetching /storage/emulated/0/Temp/getme.txt to renamed_getme.txt
+getme.txt                                                                                   100%   32     6.3KB/s   00:00    
+sftp> put putme.txt renamed_putme.txt
+Uploading putme.txt to /storage/emulated/0/Temp/renamed_putme.txt
+putme.txt                                                                                   100%   35     6.4KB/s   00:00    
+sftp> ls
+getme.txt            renamed_putme.txt    test.txt             
+sftp> lls
+putme.txt  renamed_getme.txt
+sftp> ^D
+        </code></pre>
 	</main>
 
 	<aside class="info side-img-wrapper">
